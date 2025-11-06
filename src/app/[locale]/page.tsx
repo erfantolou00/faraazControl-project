@@ -5,11 +5,11 @@ import AboutSection from '@/components/layout/AboutSection';
 import ServicesSection from '@/components/layout/ServiceSection';
 
 interface HomePageProps {
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }
 
 export default async function  HomePage({ params }: HomePageProps) {
-  const { locale } = await params;
+  const { locale } = await params as { locale: string };
   const texts = locale === 'fa' ? fa : en;
 
   return (

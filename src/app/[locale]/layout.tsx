@@ -4,14 +4,14 @@ import Footer from "../../components/layout/Footer";
 
 interface LocaleLayoutProps {
   children: ReactNode;
-  params: { locale: string }; 
+  params: Promise<{ locale: string }>;
 }
 
 export default async function LocaleLayout({
   children,
   params,
 }: LocaleLayoutProps) {
-  const { locale } = await params;
+  const { locale } = await params as { locale: string };
 
   return (
     <div className="min-h-screen flex flex-col">
