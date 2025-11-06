@@ -1,26 +1,50 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Dark Variant برای Tailwind 4.1 */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Light Theme پیشفرض */
+@theme {
+  /* Brand Colors */
+  --color-dark-green: #132a13;
+  --color-hunter-green: #31572c;
+  --color-fern-green: #4f772d;
+  --color-moss-green: #90a955;
+  --color-mindaro: #ecf39e;
+
+  /* Semantic Colors */
+  --color-primary: var(--color-fern-green);
+  --color-secondary: var(--color-hunter-green);
+  --color-accent: var(--color-mindaro);
+
+  --color-background: #f0f4f1;
+  --color-background-card: #ffffff;
+  --color-text: #191c1a;
+  --color-border: #d1d5db;
+  --color-hover: #e2e8f0;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #f87171;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* Dark Theme */
+@layer theme {
+  :root, :host {
+    @variant dark {
+      --color-primary: #90a955;     /* moss-green */
+      --color-secondary: #4f772d;   /* fern-green */
+      --color-accent: #ecf39e;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+      --color-background: #132a13;
+      --color-background-card: #223322;
+      --color-text: #e0e0e0;
+      --color-border: #4f772d;
+      --color-hover: #31572c;
+
+      --color-success: #34d399;
+      --color-warning: #fbbf24;
+      --color-danger: #f87171;
+    }
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

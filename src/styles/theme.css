@@ -1,0 +1,25 @@
+@layer base {
+    
+  @theme {
+    /* برند رنگ‌ها */
+    --color-dark-green: #132a13;
+    --color-hunter-green: #31572c;
+    --color-fern-green: #4f772d;
+    --color-moss-green: #90a955;
+    --color-mindaro: #ecf39e;
+
+    /* Semantic رنگ‌ها */
+    --color-primary: var(--color-fern-green);
+    --color-secondary: var(--color-hunter-green);
+    --color-accent: var(--color-mindaro);
+
+    --color-bg: #ffffff;
+    --color-bg-card: #f5f5f5;
+    --color-text: #1a1a1a;
+
+    --color-success: #34d399; /* مثال */
+    --color-warning: #fbbf24;
+    --color-danger: #f87171;
+  }
+
+}

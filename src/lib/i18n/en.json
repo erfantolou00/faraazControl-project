@@ -1,0 +1,47 @@
+{
+  "heroSection": {
+    "title": "Faraz Control - Electrical Panels Design & Development",
+    "subtitle": "Faraz Control is a provider of innovative solutions in industrial and building electrical panels.",
+    "callToAction": "Get Started"
+  },
+  "header": {
+    "menu": [
+      {
+        "label": "Home",
+        "href": "/en"
+      },
+      {
+        "label": "About",
+        "href": "/en/about"
+      },
+      {
+        "label": "Services",
+        "href": "/en/services"
+      },
+      {
+        "label": "Projects",
+        "href": "/en/projects"
+      },
+      {
+        "label": "Contact",
+        "href": "/en/contact"
+      }
+    ],
+    "title": "Faraz Control - Electrical Panels Design & Development"
+  },
+  "footer": {
+    "contact": "Contact Us",
+    "address": "Tehran, Iran",
+    "phone": "Phone: +98 21 1234 5678",
+    "email": "Email: "
+  },
+  "themeSwitcher": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "system": "System Mode"
+  },
+  "buttons": {
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us"
+  }
+}
