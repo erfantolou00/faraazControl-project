@@ -1,8 +1,52 @@
 {
   "heroSection": {
     "title": "Faraz Control - Electrical Panels Design & Development",
-    "subtitle": "Faraz Control is a provider of innovative solutions in industrial and building electrical panels.",
-    "callToAction": "Get Started"
+    "subtitle": "Innovative Solutions for Your Electrical Needs",
+     "ctaPrimary": "Contact Us",
+    "ctaSecondary": "Get Started",
+        "imageUrl": "/heroSection/1.jpg"
+
+  },
+  "aboutSection": {
+    "title": "About Faraz Control",
+    "description": "With years of experience in designing and developing electrical panels, Faraz Control delivers high-quality services that comply with international standards.",
+    "features": [
+      {
+        "icon": "⚙️",
+        "title": "Custom Design",
+        "description": "We design electrical panels tailored to the specific needs of each client."
+      },
+      {
+        "icon": "🔧",
+        "title": "Advanced Development",
+        "description": "Utilizing cutting-edge technologies to develop high-performance electrical panels."
+      },
+      {
+        "icon": "💡",
+        "title": "Innovative Solutions",
+        "description": "Providing creative solutions to enhance the performance of electrical systems."
+      }
+    ]
+  },
+  "servicesSection": {
+    "title": "Our Services",
+    "services": [
+      {
+        "title": "Electrical Panel Design",
+        "description": "Offering specialized electrical panel design services tailored to industrial and building needs.",
+        "icon": "🔌"
+      },
+      {
+        "title": "Development and Manufacturing",
+        "description": "Developing and manufacturing electrical panels using the best materials and modern technologies.",
+        "icon": "🏭"
+      },
+      {
+        "title": "Maintenance and Support",
+        "description": "Providing maintenance and support services to ensure optimal performance of electrical panels.",
+        "icon": "🛠️"
+      }
+    ]
   },
   "header": {
     "menu": [
