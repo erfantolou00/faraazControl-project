@@ -8,17 +8,20 @@ interface HomePageProps {
   params: Promise<{ locale: string }>;
 }
 
-export default async function  HomePage({ params }: HomePageProps) {
+export default async function HomePage({ params }: HomePageProps) {
   const { locale } = await params as { locale: string };
   const texts = locale === 'fa' ? fa : en;
 
   return (
-      <main className="bg-background text-text min-h-screen transition-colors duration-300">
-      <div className="container mx-auto p-8">
+    <>
+      {/* Hero Section - Full Width */}
       <HeroSection data={texts.heroSection} locale={locale} />
-      <AboutSection data={texts.aboutSection}  />
-      <ServicesSection data={texts.servicesSection}  />
-      </div>
-    </main>
+      
+      {/* About Section - با فاصله مناسب */}
+      <AboutSection data={texts.aboutSection} />
+      
+      {/* Services Section - با فاصله مناسب */}
+      <ServicesSection data={texts.servicesSection} />
+    </>
   );
 }

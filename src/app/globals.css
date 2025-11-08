@@ -1,50 +1,146 @@
 @import "tailwindcss";
 
+/* فونت IRANSans */
+@font-face {
+  font-family: 'IRANSans';
+  src: url('/fonts/IRANSans.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Yekan';
+  src: url('/fonts/Yekan.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Dark Variant برای Tailwind 4.1 */
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Light Theme پیشفرض */
+/* Light Theme پیشفرض - ارتقا یافته */
 @theme {
-  /* Brand Colors */
-  --color-dark-green: #132a13;
-  --color-hunter-green: #31572c;
-  --color-fern-green: #4f772d;
-  --color-moss-green: #90a955;
-  --color-mindaro: #ecf39e;
+  /* Brand Colors - رنگ‌های حرفه‌ای و خاص */
+  --color-dark-green: #0d1f0d;
+  --color-hunter-green: #2d4a2d;
+  --color-fern-green: #3d6b3d;
+  --color-moss-green: #7a9a5a;
+  --color-mindaro: #d4e8a8;
+  --color-electric-green: #4ade80;
+  --color-forest-green: #22543d;
 
-  /* Semantic Colors */
-  --color-primary: var(--color-fern-green);
-  --color-secondary: var(--color-hunter-green);
-  --color-accent: var(--color-mindaro);
+  /* Semantic Colors - با کنتراست بهتر */
+  --color-primary: #2d5a3d;           /* سبز حرفه‌ای و تیره‌تر */
+  --color-primary-light: #4a7c5a;    /* سبز روشن‌تر برای hover */
+  --color-primary-dark: #1e3d2a;     /* سبز تیره‌تر */
+  --color-secondary: #2d4a2d;         /* سبز متوسط */
+  --color-accent: #7a9a5a;            /* سبز روشن برای accent */
+  --color-accent-bright: #a8c87a;     /* سبز روشن‌تر */
 
-  --color-background: #f0f4f1;
-  --color-background-card: #ffffff;
-  --color-text: #191c1a;
-  --color-border: #d1d5db;
-  --color-hover: #e2e8f0;
+  /* Background Colors - نرم و حرفه‌ای */
+  --color-background: #f8faf9;        /* پس‌زمینه اصلی - کمی گرم‌تر */
+  --color-background-card: #ffffff;   /* کارت‌ها - سفید خالص */
+  --color-background-subtle: #f1f5f3; /* پس‌زمینه فرعی */
+  
+  /* Text Colors - خوانایی بهتر */
+  --color-text: #1a2e1f;              /* متن اصلی - تیره‌تر و خوانا */
+  --color-text-secondary: #4a5c4d;    /* متن ثانویه */
+  --color-text-muted: #6b7c6f;        /* متن کم‌رنگ */
+  
+  /* Border & Hover */
+  --color-border: #cbd5d1;            /* حاشیه - نرم‌تر */
+  --color-border-light: #e5ebe8;     /* حاشیه روشن */
+  --color-hover: #e8f0eb;             /* hover - سبز ملایم */
+  --color-hover-strong: #d4e8dc;      /* hover قوی‌تر */
 
-  --color-success: #34d399;
-  --color-warning: #fbbf24;
-  --color-danger: #f87171;
+  /* Status Colors */
+  --color-success: #10b981;           /* سبز موفقیت */
+  --color-warning: #f59e0b;           /* نارنجی هشدار */
+  --color-danger: #ef4444;            /* قرمز خطا */
+  --color-info: #3b82f6;              /* آبی اطلاعات */
 }
 
-/* Dark Theme */
+/* Dark Theme - ارتقا یافته */
 @layer theme {
   :root, :host {
     @variant dark {
-      --color-primary: #90a955;     /* moss-green */
-      --color-secondary: #4f772d;   /* fern-green */
-      --color-accent: #ecf39e;
+      /* Primary Colors - درخشان‌تر در تاریکی */
+      --color-primary: #7a9a5a;       /* سبز روشن برای تاریکی */
+      --color-primary-light: #8fb06a;
+      --color-primary-dark: #5a7a4a;
+      --color-secondary: #5a7a4a;
+      --color-accent: #a8c87a;        /* accent روشن */
+      --color-accent-bright: #c4e09a;
 
-      --color-background: #132a13;
-      --color-background-card: #223322;
-      --color-text: #e0e0e0;
-      --color-border: #4f772d;
-      --color-hover: #31572c;
+      /* Background Colors - تاریک و حرفه‌ای */
+      --color-background: #0f1a12;     /* پس‌زمینه اصلی - تیره‌تر */
+      --color-background-card: #1a2a1f; /* کارت‌ها - سبز تیره */
+      --color-background-subtle: #141f18;
 
-      --color-success: #34d399;
-      --color-warning: #fbbf24;
-      --color-danger: #f87171;
+      /* Text Colors - روشن و خوانا */
+      --color-text: #e8f0eb;           /* متن اصلی */
+      --color-text-secondary: #c4d4c8; /* متن ثانویه */
+      --color-text-muted: #9aaba0;     /* متن کم‌رنگ */
+
+      /* Border & Hover */
+      --color-border: #2d4a2d;         /* حاشیه - سبز تیره */
+      --color-border-light: #1e3d2a;
+      --color-hover: #2d4a2d;          /* hover */
+      --color-hover-strong: #3d5a3d;
+
+      /* Status Colors */
+      --color-success: #10b981;
+      --color-warning: #f59e0b;
+      --color-danger: #ef4444;
+      --color-info: #3b82f6;
     }
+  }
+}
+
+/* Global Styles - بهبود ظاهر کلی */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-text antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    /* فونت IRANSans برای فارسی و fallback برای انگلیسی */
+    font-family: 'IRANSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  }
+  
+  /* بهبود رندرینگ فونت برای فارسی */
+  [dir="rtl"] {
+    font-family: 'IRANSans', 'Tahoma', 'Arial', sans-serif;
+  }
+
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection Color */
+  ::selection {
+    @apply bg-primary/20 text-primary;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background-subtle;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/50;
   }
 }
