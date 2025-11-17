@@ -17,7 +17,7 @@ interface AboutSectionProps {
   };
 }
 
-// Icon mapping
+// Icon Mapping
 const iconMap: Record<string, React.ReactNode> = {
   '⚙️': <Settings className="w-8 h-8" />,
   '🔧': <Wrench className="w-8 h-8" />,
@@ -29,94 +29,107 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function AboutSection({ data }: AboutSectionProps) {
   return (
-    <section className="py-20 lg:py-28 bg-background-card transition-colors duration-300 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 0)`,
-          backgroundSize: '40px 40px'
-        }}></div>
-      </div>
+    <section className="relative py-24 lg:py-32 overflow-hidden mt-2 rounded-xl">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
+      {/* BACKGROUND: Grid + Soft Glow */}
+      <div className="absolute inset-0 -z-10  bg-background/50"></div>
+      <div className="absolute top-0 left-1/4 w-48 h-[120%] bg-primary/20 blur-3xl rotate-45"></div>
+      <div className="absolute bottom-0 right-1/4 w-48 h-[120%] bg-accent/20 blur-3xl -rotate-45"></div>
+
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
+
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary mb-6">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold bg-gradient-to-l from-primary to-accent bg-clip-text text-transparent drop-shadow-sm">
             {data.title}
           </h2>
+
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-lg md:text-xl text-text/80 max-w-3xl mx-auto leading-relaxed"
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="text-lg md:text-xl text-text/70 mt-6 leading-relaxed"
           >
             {data.description}
           </motion.p>
+
           <motion.div
-            initial={{ opacity: 0, scaleX: 0 }}
-            whileInView={{ opacity: 1, scaleX: 1 }}
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"
+            transition={{ delay: 0.4, duration: 0.6 }}
+            className="w-28 h-1 bg-primary mt-6 mx-auto rounded-full"
           ></motion.div>
         </motion.div>
 
-        {/* Features Grid */}
+        {/* FEATURES GRID */}
         {data.features && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-50px' }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: { opacity: 1, transition: { staggerChildren: 0.12 } },
+            }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          >
             {data.features.map((feature, idx) => {
-              const IconComponent = iconMap[feature.icon] || <Settings className="w-8 h-8" />;
+              const Icon = iconMap[feature.icon] || <Settings className="w-8 h-8" />;
+
               return (
                 <motion.div
                   key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  className="group relative"
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: { opacity: 1, y: 0 },
+                  }}
                 >
-                  <div className="relative h-full bg-background border border-border/50 rounded-2xl p-8 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5">
-                    {/* Animated Background Gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-transparent rounded-2xl transition-all duration-500"></div>
-                    
-                    {/* Content */}
+                  <div className="relative group p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl 
+                    shadow-xl shadow-black/5 hover:border-primary/40 transition-all duration-300 overflow-hidden">
+
+                    {/* Electric Glow */}
+                    <div className="absolute -inset-1 opacity-0 group-hover:opacity-20 blur-2xl bg-primary transition-all duration-500"></div>
+
                     <div className="relative z-10">
-                      {/* Icon */}
-                      <div className="relative mb-6 inline-block">
-                        <div className="absolute inset-0 bg-primary/20 rounded-xl blur-lg group-hover:blur-xl transition-all"></div>
-                        <div className="relative w-16 h-16 flex items-center justify-center bg-primary/10 rounded-xl group-hover:bg-primary/20 transition-colors group-hover:scale-110 duration-300">
-                          <div className="text-primary">
-                            {IconComponent}
-                          </div>
+
+                      {/* ICON */}
+                      <div className="mb-6">
+                        <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-2xl 
+                          bg-primary/10 group-hover:bg-primary/20 transition-all duration-300">
+                          <div className="absolute inset-0 rounded-2xl bg-primary/30 blur-xl opacity-50 group-hover:opacity-80 transition-all duration-500"></div>
+                          <div className="text-primary relative">{Icon}</div>
                         </div>
                       </div>
 
-                      {/* Title */}
-                      <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                      {/* TITLE */}
+                      <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors duration-300">
                         {feature.title}
                       </h3>
 
-                      {/* Description */}
+                      {/* DESCRIPTION */}
                       <p className="text-text/70 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
 
-                    {/* Decorative Corner */}
-                    <div className="absolute top-0 right-0 w-20 h-20 border-t border-r border-primary/0 group-hover:border-primary/20 rounded-tr-2xl transition-all duration-300"></div>
-                    <div className="absolute bottom-0 left-0 w-20 h-20 border-b border-l border-primary/0 group-hover:border-primary/20 rounded-bl-2xl transition-all duration-300"></div>
+                    {/* DECORATIVE STROKES */}
+                    <span className="absolute top-0 right-0 w-24 h-24 border-t border-r border-primary/0 
+                      group-hover:border-primary/40 rounded-tr-3xl transition-all duration-300"></span>
+                    <span className="absolute bottom-0 left-0 w-24 h-24 border-b border-l border-primary/0 
+                      group-hover:border-primary/40 rounded-bl-3xl transition-all duration-300"></span>
                   </div>
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         )}
       </div>
     </section>

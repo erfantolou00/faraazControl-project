@@ -1,6 +1,7 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import { Zap, Mail, Phone, MapPin, Globe, Linkedin, Instagram } from 'lucide-react';
+import { motion } from 'framer-motion';
 import fa from '../../lib/i18n/fa.json';
 import en from '../../lib/i18n/en.json';
 
@@ -12,18 +13,32 @@ const Footer = ({ locale }: FooterProps) => {
   const otherLocale = locale === 'fa' ? 'en' : 'fa';
   const texts = locale === 'fa' ? fa : en;
   const isRtl = locale === 'fa';
-
   const footerLinks = texts.header?.menu || [];
 
   return (
-    <footer className="bg-background-card border-t border-border/50">
+    <footer className="relative bg-background-card border-t border-border/50 text-text">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 -z-10 opacity-5 pointer-events-none">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `linear-gradient(90deg, rgba(0,102,255,0.03) 1px, transparent 1px), linear-gradient(180deg, rgba(0,102,255,0.03) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+          }}
+        />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
           <div className={`space-y-4 ${isRtl ? 'text-right' : 'text-left'}`}>
             <Link href={`/${locale}`} className="flex items-center gap-2 group">
               <div className="relative">
-                <div className="absolute inset-0 bg-primary/20 rounded-lg blur-md group-hover:blur-lg transition-all"></div>
+                <motion.div
+                  className="absolute inset-0 bg-accent/30 rounded-lg blur-md"
+                  animate={{ opacity: [0.2, 0.4, 0.2] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                />
                 <div className="relative bg-primary/10 p-2 rounded-lg group-hover:bg-primary/20 transition-colors">
                   <Zap className="w-5 h-5 text-primary" />
                 </div>
@@ -33,27 +48,23 @@ const Footer = ({ locale }: FooterProps) => {
               </span>
             </Link>
             <p className="text-sm text-text/70 leading-relaxed">
-              {isRtl 
+              {isRtl
                 ? 'طراحی و توسعه تابلوهای برقی با کیفیت بالا و مطابق با استانداردهای بین‌المللی'
-                : 'High-quality electrical panel design and development in compliance with international standards'
-              }
+                : 'High-quality electrical panel design and development in compliance with international standards'}
             </p>
             {/* Social Links */}
             <div className="flex items-center gap-3 pt-2">
-              <a
-                href="#"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-border hover:border-primary hover:bg-primary/10 text-text/70 hover:text-primary transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="w-9 h-9 flex items-center justify-center rounded-lg border border-border hover:border-primary hover:bg-primary/10 text-text/70 hover:text-primary transition-all"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
+              {[Linkedin, Instagram].map((Icon, i) => (
+                <motion.a
+                  key={i}
+                  href="#"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-9 h-9 flex items-center justify-center rounded-lg border border-border hover:border-primary hover:bg-primary/10 text-text/70 hover:text-primary transition-all"
+                >
+                  <Icon className="w-4 h-4" />
+                </motion.a>
+              ))}
             </div>
           </div>
 
@@ -67,9 +78,9 @@ const Footer = ({ locale }: FooterProps) => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-text/70 hover:text-primary transition-colors duration-300"
+                  className="relative text-sm text-text/70 hover:text-primary transition-all duration-300 group"
                 >
-                  {item.label}
+                  <span className="group-hover:underline underline-offset-4">{item.label}</span>
                 </Link>
               ))}
             </nav>

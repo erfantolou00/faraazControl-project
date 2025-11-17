@@ -1,146 +1,284 @@
 @import "tailwindcss";
 
-/* فونت IRANSans */
+/* ==================== فونت‌های حرفه‌ای و بهینه ==================== */
+/* IRANSansX: بهترین فونت فارسی برای وب (سبک، خوانا، حرفه‌ای) */
 @font-face {
-  font-family: 'IRANSans';
-  src: url('/fonts/IRANSans.ttf') format('truetype');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Yekan';
-  src: url('/fonts/Yekan.ttf') format('truetype');
+  font-family: 'IRANSansX';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx@v1.0.2/IRANSansX-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
-/* Dark Variant برای Tailwind 4.1 */
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* Light Theme پیشفرض - ارتقا یافته */
-@theme {
-  /* Brand Colors - رنگ‌های حرفه‌ای و خاص */
-  --color-dark-green: #0d1f0d;
-  --color-hunter-green: #2d4a2d;
-  --color-fern-green: #3d6b3d;
-  --color-moss-green: #7a9a5a;
-  --color-mindaro: #d4e8a8;
-  --color-electric-green: #4ade80;
-  --color-forest-green: #22543d;
-
-  /* Semantic Colors - با کنتراست بهتر */
-  --color-primary: #2d5a3d;           /* سبز حرفه‌ای و تیره‌تر */
-  --color-primary-light: #4a7c5a;    /* سبز روشن‌تر برای hover */
-  --color-primary-dark: #1e3d2a;     /* سبز تیره‌تر */
-  --color-secondary: #2d4a2d;         /* سبز متوسط */
-  --color-accent: #7a9a5a;            /* سبز روشن برای accent */
-  --color-accent-bright: #a8c87a;     /* سبز روشن‌تر */
-
-  /* Background Colors - نرم و حرفه‌ای */
-  --color-background: #f8faf9;        /* پس‌زمینه اصلی - کمی گرم‌تر */
-  --color-background-card: #ffffff;   /* کارت‌ها - سفید خالص */
-  --color-background-subtle: #f1f5f3; /* پس‌زمینه فرعی */
-  
-  /* Text Colors - خوانایی بهتر */
-  --color-text: #1a2e1f;              /* متن اصلی - تیره‌تر و خوانا */
-  --color-text-secondary: #4a5c4d;    /* متن ثانویه */
-  --color-text-muted: #6b7c6f;        /* متن کم‌رنگ */
-  
-  /* Border & Hover */
-  --color-border: #cbd5d1;            /* حاشیه - نرم‌تر */
-  --color-border-light: #e5ebe8;     /* حاشیه روشن */
-  --color-hover: #e8f0eb;             /* hover - سبز ملایم */
-  --color-hover-strong: #d4e8dc;      /* hover قوی‌تر */
-
-  /* Status Colors */
-  --color-success: #10b981;           /* سبز موفقیت */
-  --color-warning: #f59e0b;           /* نارنجی هشدار */
-  --color-danger: #ef4444;            /* قرمز خطا */
-  --color-info: #3b82f6;              /* آبی اطلاعات */
+@font-face {
+  font-family: 'IRANSansX';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx@v1.0.2/IRANSansX-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'IRANSansX';
+  src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iransansx@v1.0.2/IRANSansX-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Dark Theme - ارتقا یافته */
+/* Inter: فونت لاتین مدرن، حرفه‌ای و کاملاً هماهنگ با فارسی */
+@font-face {
+  font-family: 'Inter';
+  src: url('https://rsms.me/inter/font-files/Inter.var.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==================== Dark Variant برای Tailwind 4+ ==================== */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ==================== تم اصلی (Light Mode) - حرفه‌ای، صنعتی، الکتریکی ==================== */
+@theme {
+  /* Brand Colors - الهام‌گرفته از برق، انرژی، تکنولوژی */
+  --color-electric-blue: #0066ff;
+  --color-neon-cyan: #00d4ff;
+  --color-neon-green: #39ff14;
+  --color-industrial-gray: #1a1a1a;
+  --color-steel: #2d2d2d;
+  --color-silver: #e0e0e0;
+  --color-light-gray: #f5f5f5;
+
+  /* Semantic Colors - کنتراست بالا، حرفه‌ای */
+  --color-primary: #0066ff;           /* آبی الکتریکی - برند اصلی */
+  --color-primary-light: #3388ff;     /* hover */
+  --color-primary-dark: #0044cc;      /* active */
+  --color-secondary: #00d4ff;         /* آبی نئونی - accent */
+  --color-accent: #39ff14;            /* سبز نئونی - موفقیت و انرژی */
+  --color-accent-bright: #66ff33;
+
+  /* Background Colors - صنعتی و تمیز */
+  --color-background: #0f0f0f;         /* پس‌زمینه اصلی - خاکستری تیره صنعتی */
+  --color-background-alt: #1a1a1a;     /* پس‌زمینه فرعی */
+  --color-background-card: #111111;   /* کارت‌ها */
+  --color-background-subtle: #1e1e1e; /* پس‌زمینه نرم */
+
+  /* Text Colors - خوانایی بالا */
+  --color-text: #e0e0e0;              /* متن اصلی */
+  --color-text-secondary: #aaaaaa;    /* متن ثانویه */
+  --color-text-muted: #888888;        /* متن کم‌رنگ */
+  --color-text-inverse: #111111;      /* برای متن روی رنگ روشن */
+
+  /* Border & Divider */
+  --color-border: #2d2d2d;
+  --color-border-light: #404040;
+  --color-divider: #262626;
+
+  /* Hover & Interactive */
+  --color-hover: #3388ff26;           /* hover overlay */
+  --color-hover-strong: #3388ff40;
+  --color-focus: #0044cc;
+
+  /* Status Colors - استاندارد */
+  --color-success: #39ff14;
+  --color-warning: #ffaa00;
+  --color-danger: #ff3333;
+  --color-info: #00d4ff;
+}
+
+/* ==================== تم تاریک (Dark Mode) - یکپارچه با Light ==================== */
 @layer theme {
   :root, :host {
     @variant dark {
-      /* Primary Colors - درخشان‌تر در تاریکی */
-      --color-primary: #7a9a5a;       /* سبز روشن برای تاریکی */
-      --color-primary-light: #8fb06a;
-      --color-primary-dark: #5a7a4a;
-      --color-secondary: #5a7a4a;
-      --color-accent: #a8c87a;        /* accent روشن */
-      --color-accent-bright: #c4e09a;
+      /* در Dark Mode، تم اصلی (تیره) فعال است → نیازی به تغییر نیست */
+      /* اما برای پشتیبانی از سیستم‌های روشن، یک حالت روشن اضافه می‌کنیم */
+      --color-background: #f8f9fa;
+      --color-background-alt: #ffffff;
+      --color-background-card: #ffffff;
+      --color-background-subtle: #f1f3f5;
 
-      /* Background Colors - تاریک و حرفه‌ای */
-      --color-background: #0f1a12;     /* پس‌زمینه اصلی - تیره‌تر */
-      --color-background-card: #1a2a1f; /* کارت‌ها - سبز تیره */
-      --color-background-subtle: #141f18;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #555555;
+      --color-text-muted: #777777;
+      --color-text-inverse: #ffffff;
 
-      /* Text Colors - روشن و خوانا */
-      --color-text: #e8f0eb;           /* متن اصلی */
-      --color-text-secondary: #c4d4c8; /* متن ثانویه */
-      --color-text-muted: #9aaba0;     /* متن کم‌رنگ */
+      --color-border: #e0e0e0;
+      --color-border-light: #f0f0f0;
+      --color-divider: #e5e5e5;
 
-      /* Border & Hover */
-      --color-border: #2d4a2d;         /* حاشیه - سبز تیره */
-      --color-border-light: #1e3d2a;
-      --color-hover: #2d4a2d;          /* hover */
-      --color-hover-strong: #3d5a3d;
-
-      /* Status Colors */
-      --color-success: #10b981;
-      --color-warning: #f59e0b;
-      --color-danger: #ef4444;
-      --color-info: #3b82f6;
+      --color-hover: #0066ff0d;
+      --color-hover-strong: #0066ff1a;
     }
   }
 }
 
-/* Global Styles - بهبود ظاهر کلی */
+/* ==================== استایل‌های پایه (Global) ==================== */
 @layer base {
-  * {
+  *, *::before, *::after {
     @apply border-border;
+    box-sizing: border-box;
   }
-  
+
   body {
     @apply bg-background text-text antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
-    /* فونت IRANSans برای فارسی و fallback برای انگلیسی */
-    font-family: 'IRANSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  }
-  
-  /* بهبود رندرینگ فونت برای فارسی */
-  [dir="rtl"] {
-    font-family: 'IRANSans', 'Tahoma', 'Arial', sans-serif;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Smooth Scrolling */
+  /* فونت فارسی: IRANSansX | فونت انگلیسی: Inter */
+  [dir="rtl"], .font-fa {
+    font-family: 'IRANSansX', 'Tahoma', sans-serif;
+  }
+
+  [dir="ltr"], .font-en {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* فونت پیش‌فرض ترکیبی */
+  body, input, textarea, button {
+    font-family: 'IRANSansX', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  /* اسکرول نرم */
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
-  /* Selection Color */
+  /* انتخاب متن */
   ::selection {
     @apply bg-primary/20 text-primary;
   }
+  ::-moz-selection {
+    @apply bg-primary/20 text-primary;
+  }
 
-  /* Scrollbar Styling */
+  /* اسکرول‌بار حرفه‌ای و کم‌رنگ */
   ::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
-
   ::-webkit-scrollbar-track {
-    @apply bg-background-subtle;
+    @apply bg-background-alt;
   }
-
   ::-webkit-scrollbar-thumb {
-    @apply bg-border rounded-full;
+    @apply bg-border-light rounded-full;
+    transition: background 0.2s ease;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/40;
   }
 
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary/50;
+  /* لینک‌ها */
+  a {
+    @apply text-primary underline-offset-4 transition-colors duration-200;
   }
+  a:hover {
+    @apply text-primary-light no-underline;
+  }
+
+  /* دکمه‌های پیش‌فرض */
+  button, [role="button"] {
+    @apply cursor-pointer transition-all duration-200;
+  }
+
+  /* فوکوس قابل دسترس */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
+  }
+}
+
+/* ==================== کامپوننت‌های سفارشی (اختیاری) ==================== */
+@layer components {
+  .card {
+    @apply bg-background-card border border-border rounded-xl p-6 shadow-lg backdrop-blur-sm;
+    transition: all 0.3s ease;
+  }
+  .card:hover {
+    @apply shadow-xl translate-y-[-2px] border-primary/20;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-background px-6 py-3 rounded-lg font-medium inline-flex items-center gap-2 transition-all duration-200;
+  }
+  .btn-primary:hover {
+    @apply bg-primary-light shadow-lg scale-[1.02];
+  }
+  .btn-primary:active {
+    @apply scale-[0.98];
+  }
+
+  .section {
+    @apply py-16 px-4 md:px-8 lg:px-12;
+  }
+
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
+
+/* ==================== انیمیشن‌های نرم (اختیاری) ==================== */
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==================== ریسپانسیو فونت ==================== */
+/* @screen sm {
+  html { font-size: 14px; }
+}
+@screen md {
+  html { font-size: 15px; }
+}
+@screen lg {
+  html { font-size: 16px; }
+}
+@screen xl {
+  html { font-size: 17px; }
+} */
+
+/* ==================== پشتیبانی از RTL و LTR ==================== */
+[dir="rtl"] {
+  text-align: right;
+}
+[dir="ltr"] {
+  text-align: left;
+}
+
+/* ==================== حالت چاپ ==================== */
+@media print {
+  * {
+    @apply bg-white text-black;
+  }
+  .no-print {
+    display: none;
+  }
+}
+
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 8s ease infinite;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
 }
