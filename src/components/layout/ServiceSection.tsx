@@ -15,18 +15,23 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-interface Service {
-  icon: keyof typeof iconMap;
-  title: string;
-  description: string;
-}
+export type IconName = "Settings" | "Wrench" | "Lightbulb" | "Zap" | "Shield" | "Award" | "Cpu" | "Gauge" | "Workflow" | "CircuitBoard" | "Factory";
 
+export interface Service {
+  icon: IconName;
+  title?: string;
+  description?: string;
+}
 interface ServicesSectionProps {
   data: {
     title: string;
-    services: Service[];
+    services: Array<{
+      title?: string;
+      description?: string;
+      icon: IconName;
+    }>;
   };
-  locale?: string;
+  locale: string;
 }
 
 const iconMap = {
@@ -42,7 +47,7 @@ const iconMap = {
   Settings: <Settings className="w-10 h-10" />,
 };
 
-export default function ServicesSection({ data, locale = 'fa' }: ServicesSectionProps) {
+export default function ServicesSection({ data , locale }: ServicesSectionProps) {
   const isRtl = locale === 'fa';
 
   return (
@@ -102,7 +107,7 @@ export default function ServicesSection({ data, locale = 'fa' }: ServicesSection
           </motion.div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight  text-text-secondary">
-            {data.title}
+            {data?.title || ""}
           </h2>
 
           <motion.div
@@ -116,8 +121,8 @@ export default function ServicesSection({ data, locale = 'fa' }: ServicesSection
 
         {/* Services Grid - High-End Industrial Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {data.services.map((service, idx) => {
-            const Icon = iconMap[service.icon] || <Zap className="w-10 h-10" />;
+        {data?.services?.map((service, idx) => {
+            const Icon = iconMap[service.icon as keyof typeof iconMap] || <Zap className="w-10 h-10" />;
 
             return (
               <motion.div
@@ -155,12 +160,12 @@ export default function ServicesSection({ data, locale = 'fa' }: ServicesSection
 
                   {/* Title */}
                   <h3 className="text-2xl md:text-3xl font-black text-text-muted mb-5 group-hover:text-primary transition-colors duration-500">
-                    {service.title}
+                    {service?.title || ""}
                   </h3>
 
                   {/* Description */}
                   <p className="text-text/70 text-lg leading-relaxed group-hover:text-text/90 transition-colors duration-500">
-                    {service.description}
+                    {service?.description || ""}
                   </p>
 
                   {/* CTA Arrow on Hover */}

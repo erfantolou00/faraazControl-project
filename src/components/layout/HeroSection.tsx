@@ -12,13 +12,13 @@ interface HeroSectionProps {
     subtitle: string;
     ctaPrimary: string;
     ctaSecondary?: string;
-    carouselImages: string[];
+    carouselImages?: string[];
     slideCaptions?: { title: string; subtitle: string }[]; // اختیاری
   };
   locale: string;
 }
 
-export default function HeroSection({ data, locale }: HeroSectionProps) {
+export default function HeroSection({ data , locale }: HeroSectionProps) {
   const isRtl = locale === "fa";
   const ArrowIcon = isRtl ? ArrowLeft : ArrowRight;
 
@@ -113,7 +113,7 @@ export default function HeroSection({ data, locale }: HeroSectionProps) {
             transition={{ delay: 0.5 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-black leading-tight bg-clip-text text-transparent bg-gradient-to-r from-text-muted/70 via-text-muted/90 to-primary/70"
           >
-            {data.title}
+            {data?.title || ""}
           </motion.h1>
 
           <motion.p
@@ -123,7 +123,7 @@ export default function HeroSection({ data, locale }: HeroSectionProps) {
             transition={{ delay: 0.7 }}
             className="text-xl sm:text-2xl text-text/75 mt-8 max-w-2xl leading-relaxed"
           >
-            {data.subtitle}
+            {data?.subtitle || ""}
           </motion.p>
 
           <motion.div
@@ -138,7 +138,7 @@ export default function HeroSection({ data, locale }: HeroSectionProps) {
               className="group relative px-10 py-5 bg-primary text-white font-bold text-lg rounded-2xl overflow-hidden shadow-2xl shadow-primary/40 hover:shadow-primary/60 transition-all duration-500"
             >
               <span className="relative z-10 flex items-center gap-4">
-                {data.ctaPrimary}
+                {data?.ctaPrimary || ""}
                 <ArrowIcon className={`w-7 h-7 transition-transform group-hover:${isRtl ? "-translate-x-3 " : "translate-x-3 "}`} />
               </span>
               <div className="absolute inset-0 bg-white/30 -translate-y-full group-hover:translate-y-0 transition-transform duration-500" />

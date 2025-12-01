@@ -3,19 +3,21 @@
 import { motion } from 'framer-motion';
 import { Settings, Wrench, Lightbulb, Zap, Shield, Award, Cpu, Gauge } from 'lucide-react';
 
-interface Feature {
-  icon: keyof typeof iconMap;
+export type IconName = "Settings" | "Wrench" | "Lightbulb" | "Zap" | "Shield" | "Award" | "Cpu" | "Gauge";
+
+export interface Feature {
+  icon: IconName;
   title: string;
   description: string;
 }
 
 interface AboutSectionProps {
   data: {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     features?: Feature[];
   };
-  locale?: string;
+  locale: string;
 }
 
 const iconMap = {
@@ -29,7 +31,7 @@ const iconMap = {
   Gauge: <Gauge className="w-9 h-9" />,
 };
 
-export default function AboutSection({ data, locale = 'fa' }: AboutSectionProps) {
+export default function AboutSection({ data , locale }: AboutSectionProps) {
   const isRtl = locale === 'fa';
 
   return (
@@ -87,7 +89,7 @@ export default function AboutSection({ data, locale = 'fa' }: AboutSectionProps)
           </motion.div>
 
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-tight text-text-secondary">
-            {data.title}
+            {data?.title || ""}
           </h2>
 
           <motion.p
@@ -97,7 +99,7 @@ export default function AboutSection({ data, locale = 'fa' }: AboutSectionProps)
             transition={{ delay: 0.4 }}
             className="text-xl md:text-2xl text-text/70 mt-8 max-w-4xl mx-auto leading-relaxed"
           >
-            {data.description}
+            {data?.description || ""}
           </motion.p>
 
           <motion.div
@@ -110,9 +112,9 @@ export default function AboutSection({ data, locale = 'fa' }: AboutSectionProps)
         </motion.div>
 
         {/* Features Grid - Luxury Industrial Cards */}
-        {data.features && (
+        {data?.features && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-20">
-            {data.features.map((feature, idx) => {
+            {data?.features?.map((feature, idx) => {
               const Icon = iconMap[feature.icon] || <Zap className="w-9 h-9" />;
 
               return (

@@ -12,17 +12,17 @@
     "description": "With years of experience in designing and developing electrical panels, Faraz Control delivers high-quality services that comply with international standards.",
     "features": [
       {
-        "icon": "⚙️",
+        "icon": "Settings",
         "title": "Custom Design",
         "description": "We design electrical panels tailored to the specific needs of each client."
       },
       {
-        "icon": "🔧",
+        "icon": "Wrench",
         "title": "Advanced Development",
         "description": "Utilizing cutting-edge technologies to develop high-performance electrical panels."
       },
       {
-        "icon": "💡",
+        "icon": "Lightbulb",
         "title": "Innovative Solutions",
         "description": "Providing creative solutions to enhance the performance of electrical systems."
       }
