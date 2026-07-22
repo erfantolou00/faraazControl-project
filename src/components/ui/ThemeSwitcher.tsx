@@ -5,15 +5,14 @@ import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 export default function ThemeSwitcher() {
-  const [theme, setTheme] = useState<"light" | "dark" | null>(null);
+  const [theme, setTheme] = useState<"light" | "dark" | null>(() => {
+    if (typeof window === "undefined") return null;
 
-  useEffect(() => {
     const saved = localStorage.getItem("theme") as "light" | "dark" | null;
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const initial = saved || (prefersDark ? "dark" : "light");
-    setTheme(initial);
-  }, []);
+    return saved || (prefersDark ? "dark" : "light");
+  });
 
   useEffect(() => {
     if (!theme) return;

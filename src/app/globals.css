@@ -38,74 +38,59 @@
 
 /* ==================== تم اصلی (Light Mode) - حرفه‌ای، صنعتی، الکتریکی ==================== */
 @theme {
-  /* Brand Colors - الهام‌گرفته از برق، انرژی، تکنولوژی */
-  --color-electric-blue: #0066ff;
-  --color-neon-cyan: #00d4ff;
-  --color-neon-green: #39ff14;
-  --color-industrial-gray: #1a1a1a;
-  --color-steel: #2d2d2d;
-  --color-silver: #e0e0e0;
-  --color-light-gray: #f5f5f5;
+/* Brand Colors */
+--color-primary: #fbbf24;           /* زرد اصلی (Amber) */
+--color-primary-light: #fcd34d;
+--color-primary-dark: #f59e0b;
 
-  /* Semantic Colors - کنتراست بالا، حرفه‌ای */
-  --color-primary: #0066ff;           /* آبی الکتریکی - برند اصلی */
-  --color-primary-light: #3388ff;     /* hover */
-  --color-primary-dark: #0044cc;      /* active */
-  --color-secondary: #00d4ff;         /* آبی نئونی - accent */
-  --color-accent: #39ff14;            /* سبز نئونی - موفقیت و انرژی */
-  --color-accent-bright: #66ff33;
+--color-secondary: #0066ff;         /* آبی الکتریکی - رنگ دوم */
+--color-secondary-light: #3388ff;
+--color-secondary-dark: #0044cc;
 
-  /* Background Colors - صنعتی و تمیز */
-  --color-background: #0f0f0f;         /* پس‌زمینه اصلی - خاکستری تیره صنعتی */
-  --color-background-alt: #1a1a1a;     /* پس‌زمینه فرعی */
-  --color-background-card: #111111;   /* کارت‌ها */
-  --color-background-subtle: #1e1e1e; /* پس‌زمینه نرم */
+--color-accent: #39ff14;            /* سبز نئونی (اختیاری برای موفقیت) */
 
-  /* Text Colors - خوانایی بالا */
-  --color-text: #e0e0e0;              /* متن اصلی */
-  --color-text-secondary: #aaaaaa;    /* متن ثانویه */
-  --color-text-muted: #888888;        /* متن کم‌رنگ */
-  --color-text-inverse: #111111;      /* برای متن روی رنگ روشن */
+/* Background */
+--color-background: #0a0a0a;        /* مشکی عمیق */
+--color-background-alt: #121212;
+--color-background-card: #1a1a1a;
+--color-background-subtle: #1f1f1f;
 
-  /* Border & Divider */
-  --color-border: #2d2d2d;
-  --color-border-light: #404040;
-  --color-divider: #262626;
+/* Text */
+--color-text: #f5f5f5;
+--color-text-secondary: #c4c4c4;
+--color-text-muted: #999999;
+--color-text-inverse: #111111;      /* برای روی زرد */
 
-  /* Hover & Interactive */
-  --color-hover: #3388ff26;           /* hover overlay */
-  --color-hover-strong: #3388ff40;
-  --color-focus: #0044cc;
+/* Border */
+--color-border: #2a2a2a;
+--color-border-light: #3a3a3a;
 
-  /* Status Colors - استاندارد */
-  --color-success: #39ff14;
-  --color-warning: #ffaa00;
-  --color-danger: #ff3333;
-  --color-info: #00d4ff;
+/* Hover & Interactive */
+--color-hover: #fbbf2420;
+--color-hover-strong: #fbbf2433;
+--color-secondary-hover: #0066ff20;
 }
 
 /* ==================== تم تاریک (Dark Mode) - یکپارچه با Light ==================== */
 @layer theme {
   :root, :host {
+    /* === Dark Mode (پیش‌فرض) - زرد + مشکی === */
     @variant dark {
-      /* در Dark Mode، تم اصلی (تیره) فعال است → نیازی به تغییر نیست */
-      /* اما برای پشتیبانی از سیستم‌های روشن، یک حالت روشن اضافه می‌کنیم */
-      --color-background: #f8f9fa;
-      --color-background-alt: #ffffff;
+      --color-background: #ffffff;
+      --color-background-alt: #f8f9fa;
       --color-background-card: #ffffff;
       --color-background-subtle: #f1f3f5;
 
       --color-text: #1a1a1a;
       --color-text-secondary: #555555;
       --color-text-muted: #777777;
-      --color-text-inverse: #ffffff;
+      --color-text-inverse: #111111;
 
-      --color-border: #e0e0e0;
+      --color-border: #e5e5e5;
       --color-border-light: #f0f0f0;
-      --color-divider: #e5e5e5;
 
-      --color-hover: #0066ff0d;
-      --color-hover-strong: #0066ff1a;
+      --color-hover: #fbbf241a;
+      --color-secondary-hover: #0066ff0d;
     }
   }
 }

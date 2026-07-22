@@ -2,10 +2,9 @@
   "heroSection": {
     "title": "Faraz Control - Electrical Panels Design & Development",
     "subtitle": "Innovative Solutions for Your Electrical Needs",
-     "ctaPrimary": "Contact Us",
+    "ctaPrimary": "Contact Us",
     "ctaSecondary": "Get Started",
-        "imageUrl": "/heroSection/1.jpg"
-
+    "imageUrl": "/heroSection/1.jpg"
   },
   "aboutSection": {
     "title": "About Faraz Control",
@@ -34,50 +33,47 @@
       {
         "title": "Electrical Panel Design",
         "description": "Offering specialized electrical panel design services tailored to industrial and building needs.",
-        "icon": "🔌"
+        "icon": "CircuitBoard"
       },
       {
         "title": "Development and Manufacturing",
         "description": "Developing and manufacturing electrical panels using the best materials and modern technologies.",
-        "icon": "🏭"
+        "icon": "Factory"
       },
       {
         "title": "Maintenance and Support",
         "description": "Providing maintenance and support services to ensure optimal performance of electrical panels.",
-        "icon": "🛠️"
+        "icon": "Wrench"
       }
     ]
   },
   "header": {
     "menu": [
-      {
-        "label": "Home",
-        "href": "/en"
-      },
-      {
-        "label": "About",
-        "href": "/en/about"
-      },
-      {
-        "label": "Services",
-        "href": "/en/services"
-      },
-      {
-        "label": "Projects",
-        "href": "/en/projects"
-      },
-      {
-        "label": "Contact",
-        "href": "/en/contact"
-      }
+      { "label": "Home", "href": "/en" },
+      { "label": "About", "href": "/en/about" },
+      { "label": "Services", "href": "/en/services" },
+      { "label": "Projects", "href": "/en/projects" },
+      { "label": "Contact", "href": "/en/contact" }
     ],
     "title": "Faraz Control - Electrical Panels Design & Development"
   },
   "footer": {
+    "company": "Faraz Control",
+    "slogan": "Power, Safety & Innovation in Every Connection",
+    "description": "With over 15 years of experience, a leader in designing and building industrial electrical panels with global standards",
+    "quickLinks": "Quick Links",
+    "contactTitle": "Get in Touch",
     "contact": "Contact Us",
-    "address": "Tehran, Iran",
-    "phone": "Phone: +98 21 1234 5678",
-    "email": "Email: "
+    "address": "Tehran, Valiasr St., Above Vanak Sq., No. 2580",
+    "phone": "+98 21 28425785",
+    "mobile": "0912 177 2348",
+    "mobileLabel": "Mobile",
+    "phoneLabel": "Landline",
+    "emailLabel": "Email",
+    "email": "info@farazcontrol.com",
+    "copyright": "All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
   },
   "themeSwitcher": {
     "light": "Light Mode",
@@ -87,5 +83,186 @@
   "buttons": {
     "learnMore": "Learn More",
     "contactUs": "Contact Us"
+  },
+  "aboutPage": {
+    "heroTitle": "About Faraz Control",
+    "heroSubtitle": "A leader in designing and building industrial electrical panels with global standards",
+    "storyTitle": "From a Spark to Industry Leadership",
+    "storyP1": "In 2009, we started with a simple goal: to build panels that don't just work, but are also",
+    "storyP1Highlight": "safe, smart, and sustainable",
+    "storyP1End": ".",
+    "storyP2Start": "Today, after completing more than",
+    "storyP2Middle": "successful projects",
+    "storyP2End": "in oil & gas, petrochemical, steel, and power plant industries, the name Faraz Control has become synonymous with quality, engineering precision, and trust.",
+    "storyP3": "We don't just build panels — we deliver integrated automation and control solutions.",
+    "storyCta": "The rest of the story is yours to write",
+    "yearsExperience": "years of experience and commitment",
+    "valuesTitle": "The Values That Set Us Apart",
+    "values": [
+      { "title": "Safety First", "desc": "Full compliance with IEC 61439, NEC, and national standards" },
+      { "title": "Unmatched Quality", "desc": "ISO 9001, 14001, and OHSAS 18001 certified" },
+      { "title": "Continuous Innovation", "desc": "Using the latest PLC, SCADA, and Industrial IoT technologies" }
+    ],
+    "stats": [
+      { "value": "500+", "label": "Successful Projects" },
+      { "value": "100+", "label": "Loyal Clients" },
+      { "value": "15+", "label": "Years Experience" },
+      { "value": "24/7", "label": "Technical Support" }
+    ],
+    "teamTitle": "Our Team",
+    "teamDesc": "Power electrical and industrial automation specialists",
+    "facilityTitle": "Equipped Workshop",
+    "facilityDesc": "Equipped with CNC, FAT testing, and advanced equipment",
+    "ctaTitle": "Ready to Work With You",
+    "ctaDesc": "Let's turn your next project into an engineering masterpiece together",
+    "ctaButton": "Start Collaboration"
+  },
+  "servicesPage": {
+    "heroTitle": "Our Specialized Services",
+    "heroSubtitle": "From design to support — a complete solution for your electrical and industrial automation needs",
+    "specializedLabel": "Specialized Service",
+    "ctaFree": "Request Free Consultation",
+    "ctaTitle": "Ready to Start Your Project?",
+    "ctaDesc": "Get the best electrical and industrial automation solutions with the Faraz Control expert team",
+    "ctaButton": "Start Collaboration",
+    "ctaProjects": "View Completed Projects",
+    "items": [
+      {
+        "title": "Industrial Electrical Panel Design",
+        "desc": "Precise MV/LV design using EPLAN, AutoCAD Electrical, and ETAP in compliance with IEC 61439",
+        "features": ["Load and short circuit analysis", "Optimal equipment selection", "Complete 3D design and schematics"],
+        "icon": "CircuitBoard"
+      },
+      {
+        "title": "Professional Manufacturing & Assembly",
+        "desc": "Building electrical panels in an equipped workshop with CNC, laser cutting, and advanced testing",
+        "features": ["Using world-class brands", "Precise and standard assembly", "Multi-stage quality control"],
+        "icon": "Factory"
+      },
+      {
+        "title": "Industrial Automation & Control",
+        "desc": "Implementing PLC, HMI, SCADA, DCS systems and Industry 4.0 solutions",
+        "features": ["Siemens, Schneider, ABB", "Advanced programming", "Integration with existing systems"],
+        "icon": "Cpu"
+      },
+      {
+        "title": "On-Site Installation & Commissioning",
+        "desc": "Experienced technical team for installation, commissioning, and final testing nationwide",
+        "features": ["Proper and safe installation", "Step-by-step commissioning", "Operator training"],
+        "icon": "Wrench"
+      },
+      {
+        "title": "Factory Acceptance Test (FAT) & Delivery",
+        "desc": "Complete performance, safety, and quality testing before shipping with client presence",
+        "features": ["Insulation, short circuit, and performance testing", "Comprehensive documented reports", "Final client approval"],
+        "icon": "Shield"
+      },
+      {
+        "title": "24/7 Maintenance & Support",
+        "desc": "After-sales service, repairs, updates, and annual maintenance contracts",
+        "features": ["Remote and on-site technical support", "Original spare parts", "SLA contracts"],
+        "icon": "Settings"
+      }
+    ]
+  },
+  "projectsPage": {
+    "heroTitle": "Completed Projects",
+    "heroSubtitle": "Over 500 successful projects in key Iranian industries — from oil & gas to steel and power plants",
+    "detailsCta": "View Details",
+    "ctaTitle": "Your Project Could Be Next",
+    "ctaDesc": "We're ready to turn your electrical and industrial automation challenges into successes",
+    "ctaConsult": "Request Technical Consultation",
+    "ctaCatalog": "Download Project Catalog (PDF)",
+    "items": [
+      {
+        "title": "MV/LV Panels - Bandar Abbas Refinery",
+        "client": "National Iranian Oil Company",
+        "year": "1403",
+        "location": "Bandar Abbas",
+        "category": "Oil & Gas",
+        "power": "32 MW",
+        "description": "Complete design, construction, and commissioning of the main refinery power distribution system per IEC 61439-1&2",
+        "image": "/projects/refinery.jpg",
+        "tags": ["MV Switchgear", "LV Panel", "Automation", "SCADA"]
+      },
+      {
+        "title": "Mobarakeh Steel Production Line Automation",
+        "client": "Mobarakeh Steel Company",
+        "year": "1402",
+        "location": "Isfahan",
+        "category": "Steel",
+        "power": "18 MW",
+        "description": "Integrated control system implementation with Siemens S7-1500 and WinCC Unified",
+        "image": "/projects/steel.png",
+        "tags": ["PLC", "HMI", "Drive System", "Industry 4.0"]
+      },
+      {
+        "title": "Combined Cycle Power Plant Panels",
+        "client": "Damavand Power Plant",
+        "year": "1403",
+        "location": "Tehran",
+        "category": "Power Plant",
+        "power": "120 MW",
+        "description": "Manufacturing and installation of main 400V panels and protection & control systems",
+        "image": "/projects/powerplant.jpg",
+        "tags": ["Generator Panel", "Sync Panel", "Protection Relay", "FAT"]
+      },
+      {
+        "title": "Bandar Imam Petrochemical Project",
+        "client": "Bandar Imam Petrochemical",
+        "year": "1402",
+        "location": "Mahshahr",
+        "category": "Petrochemical",
+        "power": "45 MW",
+        "description": "Supply and commissioning of MCC panels and ATEX motor control",
+        "image": "/projects/petrochemical.jpg",
+        "tags": ["MCC", "ATEX", "VFD", "Explosion Proof"]
+      },
+      {
+        "title": "Tehran Cement Factory Monitoring System",
+        "client": "Tehran Cement Company",
+        "year": "1403",
+        "location": "Tehran",
+        "category": "Cement",
+        "description": "Design and implementation of central SCADA with over 15,000 tags",
+        "image": "/projects/cement.jpg",
+        "tags": ["SCADA", "Historian", "Redundancy", "Reporting"]
+      },
+      {
+        "title": "Milad Hospital Emergency Panels",
+        "client": "Milad Hospital",
+        "year": "1402",
+        "location": "Tehran",
+        "category": "Healthcare",
+        "description": "UPS system and ATS panels with automatic transfer in less than 10 milliseconds",
+        "image": "/projects/hospital.jpg",
+        "tags": ["UPS Panel", "ATS", "Critical Load", "Hospital Grade"]
+      }
+    ]
+  },
+  "contactPage": {
+    "heroTitle": "Contact Us",
+    "heroSubtitle": "We're ready to answer your questions and requests",
+    "formTitle": "Send a Message",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone Number",
+    "subject": "Subject",
+    "message": "Your Message",
+    "submit": "Send Message",
+    "sending": "Sending...",
+    "successTitle": "Your message has been sent successfully",
+    "successDesc": "We will contact you soon",
+    "infoTitle": "Contact Information",
+    "address": "Tehran, Valiasr St., Above Vanak Sq., No. 2580",
+    "workingHours": "Working Hours",
+    "workingHoursValue": "Saturday to Thursday — 8 AM to 5 PM"
+  },
+  "blogPage": {
+    "heroTitle": "Blog",
+    "heroSubtitle": "Latest news, articles, and technical knowledge in industrial electrical and automation",
+    "readMore": "Read More",
+    "emptyTitle": "No Articles Published Yet",
+    "emptyDesc": "Specialized articles will be published in this section soon"
   }
 }

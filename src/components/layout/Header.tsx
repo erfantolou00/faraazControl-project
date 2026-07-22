@@ -1,119 +1,125 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Zap, Menu, X, Globe } from 'lucide-react';
-import ThemeSwitcher from '../ui/ThemeSwitcher';
-import fa from '../../lib/i18n/fa.json';
-import en from '../../lib/i18n/en.json';
-import { usePathname } from 'next/navigation';
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Globe, Menu, PhoneCall, X, Zap } from "lucide-react";
+import ThemeSwitcher from "../ui/ThemeSwitcher";
+import { usePathname } from "next/navigation";
 
 interface HeaderProps {
   locale: string;
 }
 
 export default function Header({ locale }: HeaderProps) {
-  const otherLocale = locale === 'fa' ? 'en' : 'fa';
+  const isRtl = locale === "fa";
+  const otherLocale = isRtl ? "en" : "fa";
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const texts = locale === 'fa' ? fa : en;
-  const pathname = usePathname();
 
-  // RTL / LTR Handling
-  useEffect(() => {
-    const isRtl = pathname.startsWith('/fa');
-    document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
-    document.documentElement.lang = isRtl ? 'fa' : 'en';
-  }, [pathname]);
+  const menu = isRtl
+    ? [
+        ["خانه", `/${locale}`],
+        ["درباره ما", `/${locale}/about`],
+        ["خدمات", `/${locale}/services`],
+        ["پروژه‌ها", `/${locale}/projects`],
+        ["تماس", `/${locale}/contact`],
+      ]
+    : [
+        ["Home", `/${locale}`],
+        ["About", `/${locale}/about`],
+        ["Services", `/${locale}/services`],
+        ["Projects", `/${locale}/projects`],
+        ["Contact", `/${locale}/contact`],
+      ];
 
-  // Scroll reaction
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    document.documentElement.dir = isRtl ? "rtl" : "ltr";
+    document.documentElement.lang = locale;
+  }, [isRtl, locale]);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 16);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
         scrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-lg"
-          : "bg-background/70 backdrop-blur-md"
+          ? "border-border bg-background/95 shadow-lg backdrop-blur-xl"
+          : "border-transparent bg-background/80 backdrop-blur-md"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-
+      <div className="container px-4 sm:px-6 lg:px-10">
+        <div className="flex h-18 items-center justify-between gap-4">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-3 group select-none">
-            <motion.div
-              className="relative bg-primary/10 p-2 rounded-xl"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.25 }}
-            >
-              <Zap className="w-6 h-6 text-primary" />
-            </motion.div>
-
-            <motion.span
-              className="text-xl font-bold text-primary group-hover:text-accent transition-colors"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4 }}
-            >
-              {texts.header.title.split(" - ")[0]}
-            </motion.span>
+          <Link href={`/${locale}`} className="flex items-center gap-3">
+            <span className="grid h-10 w-10 place-items-center rounded-lg bg-primary text-text-inverse">
+              <Zap className="h-5 w-5" />
+            </span>
+            <span className="leading-tight">
+              <span className="block text-lg font-black text-text">
+                {isRtl ? "فراز کنترل" : "Faraz Control"}
+              </span>
+              <span className="block text-xs font-semibold text-text-secondary">
+                {isRtl ? "تابلو برق صنعتی" : "Industrial Panels"}
+              </span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-3">
-            {texts.header.menu.map((item) => {
-              const isActive = pathname === item.href;
+          <nav className="hidden items-center gap-1 lg:flex">
+            {menu.map(([label, href]) => {
+              const isActive = pathname === href;
               return (
                 <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`
-                    relative px-4 py-2 text-sm font-medium rounded-xl transition-all 
-                    ${
-                      isActive
-                        ? "text-primary bg-primary/10 shadow-sm"
-                        : "text-text/70 hover:text-primary hover:bg-primary/5"
-                    }
-                  `}
+                  key={href}
+                  href={href}
+                  className={`rounded-lg px-4 py-2 text-sm font-bold transition ${
+                    isActive
+                      ? "bg-primary/10 text-primary"
+                      : "text-text-secondary hover:bg-white/5 hover:text-text"
+                  }`}
                 >
-                  {item.label}
-
-                  {isActive && (
-                    <motion.div
-                      layoutId="menuActive"
-                      transition={{ type: "spring", bounce: 0.3, duration: 0.5 }}
-                      className="absolute inset-0 bg-primary/10 rounded-xl -z-10"
-                    />
-                  )}
+                  {label}
                 </Link>
               );
             })}
+          </nav>
 
-            {/* Language Switch */}
+          {/* Desktop Actions */}
+          <div className="hidden items-center gap-2 lg:flex">
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-text-inverse hover:bg-primary-light transition-colors"
+            >
+              <PhoneCall className="h-4 w-4" />
+              {isRtl ? "مشاوره" : "Consult"}
+            </Link>
+
             <Link
               href={`/${otherLocale}`}
-              className="ml-3 px-3 py-2 text-sm border border-primary/30 text-primary rounded-xl 
-                         hover:bg-primary/10 transition-all flex items-center gap-2"
+              className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-bold text-text-secondary hover:text-text hover:border-border-light transition"
             >
-              <Globe className="w-4 h-4" />
-              <span>{otherLocale.toUpperCase()}</span>
+              <Globe className="h-4 w-4" />
+              {otherLocale.toUpperCase()}
             </Link>
 
             <ThemeSwitcher />
-          </nav>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-3 rounded-xl hover:bg-primary/10 transition"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            type="button"
+            aria-label={isRtl ? "باز کردن منو" : "Open menu"}
+            className="rounded-lg border border-border p-2 text-text lg:hidden hover:bg-background-alt transition"
+            onClick={() => setMobileMenuOpen((open) => !open)}
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
@@ -122,44 +128,32 @@ export default function Header({ locale }: HeaderProps) {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35 }}
-            className="lg:hidden bg-background/95 backdrop-blur-xl border-t border-border/50"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden border-t border-border bg-background/98 backdrop-blur-xl lg:hidden"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="space-y-2 px-4 py-4">
+              {menu.map(([label, href]) => (
+                <Link
+                  key={href}
+                  href={href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block rounded-lg px-4 py-3 font-bold text-text-secondary hover:bg-white/5 hover:text-text transition"
+                >
+                  {label}
+                </Link>
+              ))}
 
-              {texts.header.menu.map((item) => {
-                const isActive = pathname === item.href;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`
-                      block px-4 py-3 rounded-xl text-base font-medium transition-all
-                      ${isActive
-                        ? "text-primary bg-primary/10"
-                        : "text-text/80 hover:text-primary hover:bg-primary/5"
-                      }
-                    `}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-
-              <div className="pt-4 border-t border-border/50 flex justify-between items-center">
+              <div className="flex items-center justify-between border-t border-border pt-4">
                 <Link
                   href={`/${otherLocale}`}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-4 py-2 border border-primary/30 text-primary rounded-xl hover:bg-primary/10 flex items-center gap-2"
+                  className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-bold text-text-secondary hover:text-text"
                 >
-                  <Globe className="w-4 h-4" />
-                  <span>{otherLocale.toUpperCase()}</span>
+                  <Globe className="h-4 w-4" />
+                  {otherLocale.toUpperCase()}
                 </Link>
-
                 <ThemeSwitcher />
               </div>
             </div>
