@@ -17,7 +17,7 @@ export default async function HomePage({ params }: HomePageProps) {
   return (
     <>
       <HeroSection data={texts.heroSection} locale={locale} />
-      <AboutSection data={texts.aboutSection as { title?: string; description?: string; features?: Feature[] }} locale={locale} />
+      <AboutSection data={texts.aboutSection} locale={locale} />
       <ServicesSection data={texts.servicesSection as { title: string; services: Array<{ title?: string; description?: string; icon: ServiceIconName }> }} locale={locale} />
       <TrustSection data={texts.trustSection} locale={locale} />
       <ProcessSection data={texts.processSection} locale={locale} />
@@ -34,8 +34,17 @@ const homeFa = {
       "طراحی، ساخت، تست و راه‌اندازی تابلوهای MV/LV، MCC، PLC و سیستم‌های کنترل برای کارخانه‌ها، پروژه‌های عمرانی و صنایع حساس.",
     ctaPrimary: "درخواست مشاوره فنی",
     ctaSecondary: "مشاهده پروژه‌ها",
+    badges: ["تابلو برق صنعتی", "تست FAT", "اتوماسیون و کنترل"],
+    stats: [
+      ["500+", "پروژه صنعتی"],
+      ["15+", "سال تجربه"],
+      ["24/7", "پشتیبانی فنی"],
+    ],
+    bottomText: "طراحی برای ایمنی، دوام و بهره‌برداری پایدار",
+    bottomBadge: "IEC-minded engineering",
   },
   aboutSection: {
+    eyebrow: "چرا فراز کنترل؟",
     title: "مهندسی قابل اتکا، از نقشه تا تحویل",
     description:
       "در خرید تابلو برق، مشتری فقط یک جعبه فلزی نمی‌خرد؛ ریسک توقف خط تولید، ایمنی نفرات و پایداری انرژی را به یک تیم می‌سپارد. فراز کنترل همین نقطه حساس را با طراحی دقیق، مونتاژ استاندارد و تست مستند پوشش می‌دهد.",
@@ -54,8 +63,8 @@ const homeFa = {
         icon: "Cpu",
         title: "کنترل و اتوماسیون",
         description: "یکپارچه‌سازی PLC، HMI، SCADA و مانیتورینگ برای کاهش خطای اپراتوری و افزایش بهره‌وری.",
-      },
-    ],
+      } ,
+    ]as Feature[]
   },
   servicesSection: {
     title: "خدماتی که تصمیم خرید را ساده می‌کند",
@@ -120,8 +129,17 @@ const homeEn = {
       "Design, manufacturing, testing, and commissioning of MV/LV panels, MCCs, PLC cabinets, and control systems for demanding industrial sites.",
     ctaPrimary: "Request technical consultation",
     ctaSecondary: "View projects",
+    badges: ["Industrial panels", "FAT testing", "Automation and control"],
+    stats: [
+      ["500+", "Industrial projects"],
+      ["15+", "Years experience"],
+      ["24/7", "Technical support"],
+    ],
+    bottomText: "Designed for safety, durability, and stable operation",
+    bottomBadge: "IEC-minded engineering",
   },
   aboutSection: {
+    eyebrow: "Why Faraz Control?",
     title: "Reliable engineering, from drawing to handover",
     description:
       "Buying an electrical panel is really buying uptime, operator safety, and power reliability. Faraz Control supports that decision with precise design, standard assembly, and documented testing.",
@@ -141,7 +159,7 @@ const homeEn = {
         title: "Control and automation",
         description: "PLC, HMI, SCADA, and monitoring integration to reduce operator error and improve performance.",
       },
-    ],
+    ] as Feature[],
   },
   servicesSection: {
     title: "Services that make the buying decision easier",

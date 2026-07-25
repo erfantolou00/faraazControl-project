@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { PhoneCall, MapPin, Clock, Send, Mail } from "lucide-react";
 
 const ContactPage = () => {
@@ -156,7 +155,7 @@ const ContactPage = () => {
               
               <div className="space-y-8">
                 <div className="flex gap-4">
-                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                     <PhoneCall className="h-6 w-6 text-primary" />
                   </div>
                   <div>
@@ -166,7 +165,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
@@ -176,7 +175,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                     <MapPin className="h-6 w-6 text-primary" />
                   </div>
                   <div>
@@ -188,7 +187,7 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <div className="mt-1 w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
                     <Clock className="h-6 w-6 text-primary" />
                   </div>
                   <div>

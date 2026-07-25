@@ -10,6 +10,8 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fa">
+            <link rel="icon" type="image/webp" sizes="16x16" href="/LOGO_NoBg.webp" />
+
       <body className="antialiased">
         {children}
       </body>

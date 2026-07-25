@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { Globe, Menu, PhoneCall, X, Zap } from "lucide-react";
+import { Globe, Menu, PhoneCall, X } from "lucide-react";
 import ThemeSwitcher from "../ui/ThemeSwitcher";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 interface HeaderProps {
   locale: string;
@@ -20,19 +21,19 @@ export default function Header({ locale }: HeaderProps) {
 
   const menu = isRtl
     ? [
-        ["خانه", `/${locale}`],
-        ["درباره ما", `/${locale}/about`],
-        ["خدمات", `/${locale}/services`],
-        ["پروژه‌ها", `/${locale}/projects`],
-        ["تماس", `/${locale}/contact`],
-      ]
+      ["خانه", `/${locale}`],
+      ["درباره ما", `/${locale}/about`],
+      ["خدمات", `/${locale}/services`],
+      ["پروژه‌ها", `/${locale}/projects`],
+      ["تماس", `/${locale}/contact`],
+    ]
     : [
-        ["Home", `/${locale}`],
-        ["About", `/${locale}/about`],
-        ["Services", `/${locale}/services`],
-        ["Projects", `/${locale}/projects`],
-        ["Contact", `/${locale}/contact`],
-      ];
+      ["Home", `/${locale}`],
+      ["About", `/${locale}/about`],
+      ["Services", `/${locale}/services`],
+      ["Projects", `/${locale}/projects`],
+      ["Contact", `/${locale}/contact`],
+    ];
 
   useEffect(() => {
     document.documentElement.dir = isRtl ? "rtl" : "ltr";
@@ -48,18 +49,21 @@ export default function Header({ locale }: HeaderProps) {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-all duration-300 ${
-        scrolled
-          ? "border-border bg-background/95 shadow-lg backdrop-blur-xl"
-          : "border-transparent bg-background/80 backdrop-blur-md"
-      }`}
+      className={`sticky top-0 z-50 border-b transition-all duration-300 ${scrolled
+        ? "border-border bg-background/95 shadow-lg backdrop-blur-xl"
+        : "border-transparent bg-background/80 backdrop-blur-md"
+        }`}
     >
       <div className="container px-4 sm:px-6 lg:px-10">
         <div className="flex h-18 items-center justify-between gap-4">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-3">
-            <span className="grid h-10 w-10 place-items-center rounded-lg bg-primary text-text-inverse">
-              <Zap className="h-5 w-5" />
+            <span className="grid h-full  place-items-center rounded-lg  text-text-inverse">
+              <Image src="/LOGO_NoBg.png"
+                alt={"فراز کنترل"}
+                width={64}
+                height={64}
+                className="object-cover bg-black/80 rounded-lg" />
             </span>
             <span className="leading-tight">
               <span className="block text-lg font-black text-text">
@@ -79,11 +83,10 @@ export default function Header({ locale }: HeaderProps) {
                 <Link
                   key={href}
                   href={href}
-                  className={`rounded-lg px-4 py-2 text-sm font-bold transition ${
-                    isActive
-                      ? "bg-primary/10 text-primary"
-                      : "text-text-secondary hover:bg-white/5 hover:text-text"
-                  }`}
+                  className={`rounded-lg px-4 py-2 text-sm font-bold transition ${isActive
+                    ? "bg-primary/10 text-primary"
+                    : "text-text-secondary hover:bg-white/5 hover:text-text"
+                    }`}
                 >
                   {label}
                 </Link>
