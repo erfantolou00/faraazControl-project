@@ -49,11 +49,26 @@
   },
   "header": {
     "menu": [
-      { "label": "Home", "href": "/en" },
-      { "label": "About", "href": "/en/about" },
-      { "label": "Services", "href": "/en/services" },
-      { "label": "Projects", "href": "/en/projects" },
-      { "label": "Contact", "href": "/en/contact" }
+      {
+        "label": "Home",
+        "href": "/en"
+      },
+      {
+        "label": "About",
+        "href": "/en/about"
+      },
+      {
+        "label": "Services",
+        "href": "/en/services"
+      },
+      {
+        "label": "Projects",
+        "href": "/en/projects"
+      },
+      {
+        "label": "Contact",
+        "href": "/en/contact"
+      }
     ],
     "title": "Faraz Control - Electrical Panels Design & Development"
   },
@@ -64,13 +79,13 @@
     "quickLinks": "Quick Links",
     "contactTitle": "Get in Touch",
     "contact": "Contact Us",
-    "address": "Tehran, Valiasr St., Above Vanak Sq., No. 2580",
-    "phone": "+98 21 28425785",
+    "address": "Tehran, Laleh zar, Mikhak st ., No. 2580",
+    "phone": "+98 21 33951025",
     "mobile": "0912 177 2348",
     "mobileLabel": "Mobile",
     "phoneLabel": "Landline",
     "emailLabel": "Email",
-    "email": "info@farazcontrol.com",
+    "email": "tolou49@gmail.com",
     "copyright": "All rights reserved.",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
@@ -99,15 +114,36 @@
     "yearsExperience": "years of experience and commitment",
     "valuesTitle": "The Values That Set Us Apart",
     "values": [
-      { "title": "Safety First", "desc": "Full compliance with IEC 61439, NEC, and national standards" },
-      { "title": "Unmatched Quality", "desc": "ISO 9001, 14001, and OHSAS 18001 certified" },
-      { "title": "Continuous Innovation", "desc": "Using the latest PLC, SCADA, and Industrial IoT technologies" }
+      {
+        "title": "Safety First",
+        "desc": "Full compliance with IEC 61439, NEC, and national standards"
+      },
+      {
+        "title": "Unmatched Quality",
+        "desc": "ISO 9001, 14001, and OHSAS 18001 certified"
+      },
+      {
+        "title": "Continuous Innovation",
+        "desc": "Using the latest PLC, SCADA, and Industrial IoT technologies"
+      }
     ],
     "stats": [
-      { "value": "500+", "label": "Successful Projects" },
-      { "value": "100+", "label": "Loyal Clients" },
-      { "value": "15+", "label": "Years Experience" },
-      { "value": "24/7", "label": "Technical Support" }
+      {
+        "value": "500+",
+        "label": "Successful Projects"
+      },
+      {
+        "value": "100+",
+        "label": "Loyal Clients"
+      },
+      {
+        "value": "15+",
+        "label": "Years Experience"
+      },
+      {
+        "value": "24/7",
+        "label": "Technical Support"
+      }
     ],
     "teamTitle": "Our Team",
     "teamDesc": "Power electrical and industrial automation specialists",
@@ -130,37 +166,61 @@
       {
         "title": "Industrial Electrical Panel Design",
         "desc": "Precise MV/LV design using EPLAN, AutoCAD Electrical, and ETAP in compliance with IEC 61439",
-        "features": ["Load and short circuit analysis", "Optimal equipment selection", "Complete 3D design and schematics"],
+        "features": [
+          "Load and short circuit analysis",
+          "Optimal equipment selection",
+          "Complete 3D design and schematics"
+        ],
         "icon": "CircuitBoard"
       },
       {
         "title": "Professional Manufacturing & Assembly",
         "desc": "Building electrical panels in an equipped workshop with CNC, laser cutting, and advanced testing",
-        "features": ["Using world-class brands", "Precise and standard assembly", "Multi-stage quality control"],
+        "features": [
+          "Using world-class brands",
+          "Precise and standard assembly",
+          "Multi-stage quality control"
+        ],
         "icon": "Factory"
       },
       {
         "title": "Industrial Automation & Control",
         "desc": "Implementing PLC, HMI, SCADA, DCS systems and Industry 4.0 solutions",
-        "features": ["Siemens, Schneider, ABB", "Advanced programming", "Integration with existing systems"],
+        "features": [
+          "Siemens, Schneider, ABB",
+          "Advanced programming",
+          "Integration with existing systems"
+        ],
         "icon": "Cpu"
       },
       {
         "title": "On-Site Installation & Commissioning",
         "desc": "Experienced technical team for installation, commissioning, and final testing nationwide",
-        "features": ["Proper and safe installation", "Step-by-step commissioning", "Operator training"],
+        "features": [
+          "Proper and safe installation",
+          "Step-by-step commissioning",
+          "Operator training"
+        ],
         "icon": "Wrench"
       },
       {
         "title": "Factory Acceptance Test (FAT) & Delivery",
         "desc": "Complete performance, safety, and quality testing before shipping with client presence",
-        "features": ["Insulation, short circuit, and performance testing", "Comprehensive documented reports", "Final client approval"],
+        "features": [
+          "Insulation, short circuit, and performance testing",
+          "Comprehensive documented reports",
+          "Final client approval"
+        ],
         "icon": "Shield"
       },
       {
         "title": "24/7 Maintenance & Support",
         "desc": "After-sales service, repairs, updates, and annual maintenance contracts",
-        "features": ["Remote and on-site technical support", "Original spare parts", "SLA contracts"],
+        "features": [
+          "Remote and on-site technical support",
+          "Original spare parts",
+          "SLA contracts"
+        ],
         "icon": "Settings"
       }
     ]
@@ -183,7 +243,12 @@
         "power": "32 MW",
         "description": "Complete design, construction, and commissioning of the main refinery power distribution system per IEC 61439-1&2",
         "image": "/projects/refinery.jpg",
-        "tags": ["MV Switchgear", "LV Panel", "Automation", "SCADA"]
+        "tags": [
+          "MV Switchgear",
+          "LV Panel",
+          "Automation",
+          "SCADA"
+        ]
       },
       {
         "title": "Mobarakeh Steel Production Line Automation",
@@ -194,7 +259,12 @@
         "power": "18 MW",
         "description": "Integrated control system implementation with Siemens S7-1500 and WinCC Unified",
         "image": "/projects/steel.png",
-        "tags": ["PLC", "HMI", "Drive System", "Industry 4.0"]
+        "tags": [
+          "PLC",
+          "HMI",
+          "Drive System",
+          "Industry 4.0"
+        ]
       },
       {
         "title": "Combined Cycle Power Plant Panels",
@@ -205,7 +275,12 @@
         "power": "120 MW",
         "description": "Manufacturing and installation of main 400V panels and protection & control systems",
         "image": "/projects/powerplant.jpg",
-        "tags": ["Generator Panel", "Sync Panel", "Protection Relay", "FAT"]
+        "tags": [
+          "Generator Panel",
+          "Sync Panel",
+          "Protection Relay",
+          "FAT"
+        ]
       },
       {
         "title": "Bandar Imam Petrochemical Project",
@@ -216,7 +291,12 @@
         "power": "45 MW",
         "description": "Supply and commissioning of MCC panels and ATEX motor control",
         "image": "/projects/petrochemical.jpg",
-        "tags": ["MCC", "ATEX", "VFD", "Explosion Proof"]
+        "tags": [
+          "MCC",
+          "ATEX",
+          "VFD",
+          "Explosion Proof"
+        ]
       },
       {
         "title": "Tehran Cement Factory Monitoring System",
@@ -226,7 +306,12 @@
         "category": "Cement",
         "description": "Design and implementation of central SCADA with over 15,000 tags",
         "image": "/projects/cement.jpg",
-        "tags": ["SCADA", "Historian", "Redundancy", "Reporting"]
+        "tags": [
+          "SCADA",
+          "Historian",
+          "Redundancy",
+          "Reporting"
+        ]
       },
       {
         "title": "Milad Hospital Emergency Panels",
@@ -236,7 +321,12 @@
         "category": "Healthcare",
         "description": "UPS system and ATS panels with automatic transfer in less than 10 milliseconds",
         "image": "/projects/hospital.jpg",
-        "tags": ["UPS Panel", "ATS", "Critical Load", "Hospital Grade"]
+        "tags": [
+          "UPS Panel",
+          "ATS",
+          "Critical Load",
+          "Hospital Grade"
+        ]
       }
     ]
   },
@@ -254,7 +344,7 @@
     "successTitle": "Your message has been sent successfully",
     "successDesc": "We will contact you soon",
     "infoTitle": "Contact Information",
-    "address": "Tehran, Valiasr St., Above Vanak Sq., No. 2580",
+    "address": "Tehran, Laleh zar, Mikhak st ., No. 2580",
     "workingHours": "Working Hours",
     "workingHoursValue": "Saturday to Thursday — 8 AM to 5 PM"
   },

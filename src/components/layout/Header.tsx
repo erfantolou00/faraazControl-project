@@ -16,6 +16,10 @@ export default function Header({ locale }: HeaderProps) {
   const isRtl = locale === "fa";
   const otherLocale = isRtl ? "en" : "fa";
   const pathname = usePathname();
+  
+  // مسیر جدید با locale عوض‌شده
+  const switchedPath = pathname.replace(`/${locale}`, `/${otherLocale}`) || `/${otherLocale}`;
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -46,6 +50,7 @@ export default function Header({ locale }: HeaderProps) {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
 
   return (
     <header
@@ -104,8 +109,7 @@ export default function Header({ locale }: HeaderProps) {
               {isRtl ? "مشاوره" : "Consult"}
             </Link>
 
-            <Link
-              href={`/${otherLocale}`}
+            <Link href={switchedPath}
               className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-bold text-text-secondary hover:text-text hover:border-border-light transition"
             >
               <Globe className="h-4 w-4" />
@@ -149,14 +153,13 @@ export default function Header({ locale }: HeaderProps) {
               ))}
 
               <div className="flex items-center justify-between border-t border-border pt-4">
-                <Link
-                  href={`/${otherLocale}`}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="inline-flex items-center gap-2 rounded-lg border border-border px-4 py-2 text-sm font-bold text-text-secondary hover:text-text"
-                >
-                  <Globe className="h-4 w-4" />
-                  {otherLocale.toUpperCase()}
-                </Link>
+              <Link
+  href={switchedPath}
+  className="inline-flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm font-bold text-text-secondary hover:text-text hover:border-border-light transition"
+>
+  <Globe className="h-4 w-4" />
+  {otherLocale.toUpperCase()}
+</Link>
                 <ThemeSwitcher />
               </div>
             </div>

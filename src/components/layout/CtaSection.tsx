@@ -38,7 +38,7 @@ export default function CtaSection({ data, locale }: CtaSectionProps) {
 
               {/* Secondary Button (Phone) */}
               <a
-                href="tel:+982128425785"
+                href="tel:+982133951025"
                 className="inline-flex items-center justify-center gap-3 rounded-2xl border border-border bg-background-card px-8 py-4 text-base font-bold text-text transition hover:border-primary/40 hover:text-primary"
               >
                 {data.secondary}

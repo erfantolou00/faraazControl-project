@@ -49,11 +49,26 @@
   },
   "header": {
     "menu": [
-      { "label": "خانه", "href": "/fa" },
-      { "label": "درباره ما", "href": "/fa/about" },
-      { "label": "خدمات", "href": "/fa/services" },
-      { "label": "پروژه‌ها", "href": "/fa/projects" },
-      { "label": "تماس", "href": "/fa/contact" }
+      {
+        "label": "خانه",
+        "href": "/fa"
+      },
+      {
+        "label": "درباره ما",
+        "href": "/fa/about"
+      },
+      {
+        "label": "خدمات",
+        "href": "/fa/services"
+      },
+      {
+        "label": "پروژه‌ها",
+        "href": "/fa/projects"
+      },
+      {
+        "label": "تماس",
+        "href": "/fa/contact"
+      }
     ],
     "title": "فراز کنترل - طراحی و توسعه تابلوهای برقی"
   },
@@ -65,12 +80,12 @@
     "contactTitle": "تماس با ما",
     "contact": "تماس با ما",
     "address": "تهران، خیابان ولیعصر، بالاتر از میدان ونک، پلاک ۲۵۸۰",
-    "phone": "+98 21 28425785",
+    "phone": "+98 21 33951025",
     "mobile": "0912 177 2348",
     "mobileLabel": "موبایل",
     "phoneLabel": "تلفن ثابت",
     "emailLabel": "ایمیل",
-    "email": "info@farazcontrol.com",
+    "email": "tolou49@gmail.com",
     "copyright": "تمام حقوق محفوظ است.",
     "privacy": "حریم خصوصی",
     "terms": "شرایط استفاده"
@@ -99,15 +114,36 @@
     "yearsExperience": "سال تجربه و تعهد",
     "valuesTitle": "ارزش‌هایی که ما را متمایز می‌کند",
     "values": [
-      { "title": "ایمنی در اولویت", "desc": "تطابق کامل با IEC 61439، NEC و استانداردهای ملی" },
-      { "title": "کیفیت بی‌نهایت", "desc": "دارای گواهینامه‌های ISO 9001، 14001 و OHSAS 18001" },
-      { "title": "نوآوری مداوم", "desc": "استفاده از آخرین تکنولوژی‌های PLC، SCADA و IoT صنعتی" }
+      {
+        "title": "ایمنی در اولویت",
+        "desc": "تطابق کامل با IEC 61439، NEC و استانداردهای ملی"
+      },
+      {
+        "title": "کیفیت بی‌نهایت",
+        "desc": "دارای گواهینامه‌های ISO 9001، 14001 و OHSAS 18001"
+      },
+      {
+        "title": "نوآوری مداوم",
+        "desc": "استفاده از آخرین تکنولوژی‌های PLC، SCADA و IoT صنعتی"
+      }
     ],
     "stats": [
-      { "value": "۵۰۰+", "label": "پروژه موفق" },
-      { "value": "۱۰۰+", "label": "مشتری وفادار" },
-      { "value": "۱۵+", "label": "سال تجربه" },
-      { "value": "۲۴/۷", "label": "پشتیبانی فنی" }
+      {
+        "value": "۵۰۰+",
+        "label": "پروژه موفق"
+      },
+      {
+        "value": "۱۰۰+",
+        "label": "مشتری وفادار"
+      },
+      {
+        "value": "۱۵+",
+        "label": "سال تجربه"
+      },
+      {
+        "value": "۲۴/۷",
+        "label": "پشتیبانی فنی"
+      }
     ],
     "teamTitle": "تیم ما",
     "teamDesc": "متخصصین برق قدرت و اتوماسیون صنعتی",
@@ -130,37 +166,61 @@
       {
         "title": "طراحی تابلوهای برق صنعتی",
         "desc": "طراحی دقیق MV/LV با نرم‌افزارهای EPLAN، AutoCAD Electrical و ETAP مطابق با استاندارد IEC 61439",
-        "features": ["تحلیل بار و اتصال کوتاه", "انتخاب بهینه تجهیزات", "طراحی 3D و شماتیک کامل"],
+        "features": [
+          "تحلیل بار و اتصال کوتاه",
+          "انتخاب بهینه تجهیزات",
+          "طراحی 3D و شماتیک کامل"
+        ],
         "icon": "CircuitBoard"
       },
       {
         "title": "ساخت و مونتاژ حرفه‌ای",
         "desc": "ساخت تابلوهای برق در کارگاه مجهز با دستگاه‌های CNC، برش لیزر و تست پیشرفته",
-        "features": ["استفاده از برندهای معتبر جهانی", "مونتاژ دقیق و استاندارد", "کنترل کیفیت چندمرحله‌ای"],
+        "features": [
+          "استفاده از برندهای معتبر جهانی",
+          "مونتاژ دقیق و استاندارد",
+          "کنترل کیفیت چندمرحله‌ای"
+        ],
         "icon": "Factory"
       },
       {
         "title": "اتوماسیون و کنترل صنعتی",
         "desc": "پیاده‌سازی سیستم‌های PLC، HMI، SCADA، DCS و راهکارهای Industry 4.0",
-        "features": ["Siemens, Schneider, ABB", "پروگرام‌نویسی پیشرفته", "یکپارچه‌سازی با سیستم‌های موجود"],
+        "features": [
+          "Siemens, Schneider, ABB",
+          "پروگرام‌نویسی پیشرفته",
+          "یکپارچه‌سازی با سیستم‌های موجود"
+        ],
         "icon": "Cpu"
       },
       {
         "title": "نصب و راه‌اندازی در محل",
         "desc": "تیم فنی مجرب برای نصب، راه‌اندازی و تست نهایی در سراسر کشور",
-        "features": ["نصب اصولی و ایمن", "راه‌اندازی مرحله به مرحله", "آموزش اپراتورها"],
+        "features": [
+          "نصب اصولی و ایمن",
+          "راه‌اندازی مرحله به مرحله",
+          "آموزش اپراتورها"
+        ],
         "icon": "Wrench"
       },
       {
         "title": "تست کارخانه‌ای (FAT) و تحویل",
         "desc": "تست کامل عملکرد، ایمنی و کیفیت قبل از ارسال با حضور مشتری",
-        "features": ["تست عایق، اتصال کوتاه و عملکرد", "گزارش جامع و مستند", "تایید نهایی مشتری"],
+        "features": [
+          "تست عایق، اتصال کوتاه و عملکرد",
+          "گزارش جامع و مستند",
+          "تایید نهایی مشتری"
+        ],
         "icon": "Shield"
       },
       {
         "title": "پشتیبانی و نگهداری ۲۴/۷",
         "desc": "خدمات پس از فروش، تعمیرات، به‌روزرسانی و قرارداد نگهداری سالیانه",
-        "features": ["پشتیبانی فنی تلفنی و حضوری", "قطعات یدکی اصلی", "قرارداد SLA"],
+        "features": [
+          "پشتیبانی فنی تلفنی و حضوری",
+          "قطعات یدکی اصلی",
+          "قرارداد SLA"
+        ],
         "icon": "Settings"
       }
     ]
@@ -183,7 +243,12 @@
         "power": "۳۲ مگاوات",
         "description": "طراحی، ساخت و راه‌اندازی کامل سیستم توزیع برق اصلی پالایشگاه با استاندارد IEC 61439-1&2",
         "image": "/projects/refinery.jpg",
-        "tags": ["MV Switchgear", "LV Panel", "اتوماسیون", "SCADA"]
+        "tags": [
+          "MV Switchgear",
+          "LV Panel",
+          "اتوماسیون",
+          "SCADA"
+        ]
       },
       {
         "title": "اتوماسیون خط تولید فولاد مبارکه",
@@ -194,7 +259,12 @@
         "power": "۱۸ مگاوات",
         "description": "پیاده‌سازی سیستم کنترل یکپارچه با Siemens S7-1500 و WinCC Unified",
         "image": "/projects/steel.png",
-        "tags": ["PLC", "HMI", "Drive System", "Industry 4.0"]
+        "tags": [
+          "PLC",
+          "HMI",
+          "Drive System",
+          "Industry 4.0"
+        ]
       },
       {
         "title": "تابلوهای برق نیروگاه سیکل ترکیبی",
@@ -205,7 +275,12 @@
         "power": "۱۲۰ مگاوات",
         "description": "ساخت و نصب تابلوهای اصلی ۴۰۰V و سیستم حفاظت و کنترل",
         "image": "/projects/powerplant.jpg",
-        "tags": ["Generator Panel", "Sync Panel", "Protection Relay", "FAT"]
+        "tags": [
+          "Generator Panel",
+          "Sync Panel",
+          "Protection Relay",
+          "FAT"
+        ]
       },
       {
         "title": "پروژه پتروشیمی بندر امام",
@@ -216,7 +291,12 @@
         "power": "۴۵ مگاوات",
         "description": "تأمین و راه‌اندازی تابلوهای MCC و کنترل موتورهای ATEX",
         "image": "/projects/petrochemical.jpg",
-        "tags": ["MCC", "ATEX", "VFD", "Explosion Proof"]
+        "tags": [
+          "MCC",
+          "ATEX",
+          "VFD",
+          "Explosion Proof"
+        ]
       },
       {
         "title": "سیستم مانیتورینگ کارخانه سیمان تهران",
@@ -226,7 +306,12 @@
         "category": "سیمان",
         "description": "طراحی و پیاده‌سازی SCADA مرکزی با بیش از ۱۵۰۰۰ تگ",
         "image": "/projects/cement.jpg",
-        "tags": ["SCADA", "Historian", "Redundancy", "Reporting"]
+        "tags": [
+          "SCADA",
+          "Historian",
+          "Redundancy",
+          "Reporting"
+        ]
       },
       {
         "title": "تابلوهای اضطراری بیمارستان میلاد",
@@ -236,7 +321,12 @@
         "category": "بهداشت و درمان",
         "description": "سیستم UPS و تابلوهای ATS با قابلیت تغییر خودکار در کمتر از ۱۰ میلی‌ثانیه",
         "image": "/projects/hospital.jpg",
-        "tags": ["UPS Panel", "ATS", "Critical Load", "Hospital Grade"]
+        "tags": [
+          "UPS Panel",
+          "ATS",
+          "Critical Load",
+          "Hospital Grade"
+        ]
       }
     ]
   },

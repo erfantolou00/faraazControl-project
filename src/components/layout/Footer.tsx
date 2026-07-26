@@ -12,19 +12,19 @@ export default function Footer({ locale }: FooterProps) {
   const otherLocale = isRtl ? "en" : "fa";
   const nav = isRtl
     ? [
-        ["خانه", `/${locale}`],
-        ["درباره ما", `/${locale}/about`],
-        ["خدمات", `/${locale}/services`],
-        ["پروژه‌ها", `/${locale}/projects`],
-        ["تماس", `/${locale}/contact`],
-      ]
+      ["خانه", `/${locale}`],
+      ["درباره ما", `/${locale}/about`],
+      ["خدمات", `/${locale}/services`],
+      ["پروژه‌ها", `/${locale}/projects`],
+      ["تماس", `/${locale}/contact`],
+    ]
     : [
-        ["Home", `/${locale}`],
-        ["About", `/${locale}/about`],
-        ["Services", `/${locale}/services`],
-        ["Projects", `/${locale}/projects`],
-        ["Contact", `/${locale}/contact`],
-      ];
+      ["Home", `/${locale}`],
+      ["About", `/${locale}/about`],
+      ["Services", `/${locale}/services`],
+      ["Projects", `/${locale}/projects`],
+      ["Contact", `/${locale}/contact`],
+    ];
 
   return (
     <footer className="border-t border-border bg-background-alt">
@@ -61,17 +61,17 @@ export default function Footer({ locale }: FooterProps) {
           <div>
             <h3 className="text-sm font-black uppercase tracking-widest text-warning">{isRtl ? "ارتباط با ما" : "Contact"}</h3>
             <div className="mt-5 grid gap-4 text-sm text-text-secondary">
-              <a href="tel:+982128425785" className="flex items-center gap-3 hover:text-text">
+              <a href="tel:+982133951025" className="flex items-center gap-3 hover:text-text">
                 <Phone className="h-5 w-5 text-warning" />
-                <span dir="ltr">+98 21 28425785</span>
+                <span dir="ltr">+98 21 33951025</span>
               </a>
-              <a href="mailto:info@farazcontrol.com" className="flex items-center gap-3 hover:text-text">
+              <a href="mailto:tolou49@gmail.com" className="flex items-center gap-3 hover:text-text">
                 <Mail className="h-5 w-5 text-warning" />
-                <span>info@farazcontrol.com</span>
+                <span>tolou49@gmail.com</span>
               </a>
               <p className="flex items-start gap-3 leading-7">
                 <MapPin className="mt-1 h-5 w-5 flex-shrink-0 text-warning" />
-                <span>{isRtl ? "تهران، خیابان ولیعصر، بالاتر از میدان ونک" : "Tehran, Valiasr St., above Vanak Sq."}</span>
+                <span>{isRtl ? "تهران، خیابان ولیعصر، بالاتر از میدان ونک" : "Tehran, Laleh zar, Mikhak st ."}</span>
               </p>
             </div>
           </div>
