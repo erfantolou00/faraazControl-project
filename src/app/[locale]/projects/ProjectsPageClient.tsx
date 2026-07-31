@@ -12,7 +12,7 @@ import {
   MapPin,
   Wrench,
 } from "lucide-react";
-import type { ProjectsPageData } from "./page";
+import type { ProjectsPageData } from "@/types/projects-page";
 
 interface ProjectsPageClientProps {
   data: ProjectsPageData;
@@ -94,7 +94,6 @@ export default function ProjectsPageClient({
                 transition={{ delay: Math.min(idx * 0.1, 0.4), duration: 0.8 }}
                 className="group relative overflow-hidden rounded-3xl border border-border bg-background-card shadow-xl transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/20"
               >
-                {/* Image */}
                 <div className="relative h-56 overflow-hidden md:h-64">
                   <Image
                     src={project.image}
@@ -114,7 +113,6 @@ export default function ProjectsPageClient({
                   </div>
                 </div>
 
-                {/* Content */}
                 <div className="space-y-5 p-6 lg:p-8">
                   <h3 className="text-xl font-black text-text transition-colors duration-300 group-hover:text-primary md:text-2xl">
                     {project.title}
@@ -133,12 +131,12 @@ export default function ProjectsPageClient({
                       <MapPin className="h-4 w-4 shrink-0 text-primary" />
                       <span>{project.location}</span>
                     </div>
-                    {project.power && (
+                    {project.power ? (
                       <div className="flex items-center gap-2 text-text-secondary">
                         <Gauge className="h-4 w-4 shrink-0 text-primary" />
                         <span>{project.power}</span>
                       </div>
-                    )}
+                    ) : null}
                     <div className="flex items-center gap-2 text-text-secondary">
                       <Factory className="h-4 w-4 shrink-0 text-primary" />
                       <span className="line-clamp-1">{project.client}</span>
@@ -156,7 +154,6 @@ export default function ProjectsPageClient({
                     ))}
                   </div>
 
-                  {/* Card link overlay */}
                   <Link
                     href={`/${locale}/projects/${project.id}`}
                     className="absolute inset-0 z-10"

@@ -9,11 +9,13 @@ import {
   Settings,
   ExternalLink,
   LogOut,
+  Wrench,
 } from "lucide-react";
 
 const nav = [
   { href: "/admin", label: "داشبورد", icon: LayoutDashboard },
   { href: "/admin/projects", label: "پروژه‌ها", icon: FolderKanban },
+  { href: "/admin/services", label: "خدمات", icon: Wrench },
   { href: "/admin/messages", label: "پیام‌ها", icon: MessageSquare },
   { href: "/admin/settings", label: "تنظیمات", icon: Settings },
 ];

@@ -14,7 +14,7 @@ import {
   ArrowLeft,
   ArrowRight,
 } from "lucide-react";
-import type { ServicesPageData } from "./page";
+import type { ServicesPageData } from "@/types/services-page";
 
 const iconMap = {
   CircuitBoard,
@@ -119,8 +119,8 @@ export default function ServicesPageClient({
 
               return (
                 <motion.div
-                  key={service.title}
-                  initial={{ opacity: 0, y: 80 }}
+                key={service.id}
+                                  initial={{ opacity: 0, y: 80 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.9, delay: Math.min(idx * 0.08, 0.3) }}
