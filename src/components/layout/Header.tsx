@@ -2,17 +2,19 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { Globe, Menu, PhoneCall, X } from "lucide-react";
 import ThemeSwitcher from "../ui/ThemeSwitcher";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import type { Dictionary } from "@/lib/i18n";
 
 interface HeaderProps {
   locale: string;
+  copy: Dictionary["header"];
+  nav: Dictionary["nav"];
 }
 
-export default function Header({ locale }: HeaderProps) {
+export default function Header({ locale, copy, nav }: HeaderProps) {
   const isRtl = locale === "fa";
   const otherLocale = isRtl ? "en" : "fa";
   const pathname = usePathname();
@@ -23,21 +25,13 @@ export default function Header({ locale }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const menu = isRtl
-    ? [
-      ["خانه", `/${locale}`],
-      ["درباره ما", `/${locale}/about`],
-      ["خدمات", `/${locale}/services`],
-      ["پروژه‌ها", `/${locale}/projects`],
-      ["تماس", `/${locale}/contact`],
-    ]
-    : [
-      ["Home", `/${locale}`],
-      ["About", `/${locale}/about`],
-      ["Services", `/${locale}/services`],
-      ["Projects", `/${locale}/projects`],
-      ["Contact", `/${locale}/contact`],
-    ];
+  const menu: [string, string][] = [
+    [nav.home, `/${locale}`],
+    [nav.about, `/${locale}/about`],
+    [nav.services, `/${locale}/services`],
+    [nav.projects, `/${locale}/projects`],
+    [nav.contact, `/${locale}/contact`],
+  ];
 
   useEffect(() => {
     document.documentElement.dir = isRtl ? "rtl" : "ltr";
@@ -54,28 +48,25 @@ export default function Header({ locale }: HeaderProps) {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-all duration-300 ${scrolled
-        ? "border-border bg-background/95 shadow-lg backdrop-blur-xl"
-        : "border-transparent bg-background/80 backdrop-blur-md"
-        }`}
+      className={`sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-md ${scrolled ? "shadow-sm" : ""}`}
     >
       <div className="container px-4 sm:px-6 lg:px-10">
-        <div className="flex h-18 items-center justify-between gap-4">
+        <div className="flex h-16 items-center justify-between gap-4">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-3">
             <span className="grid h-full  place-items-center rounded-lg  text-text-inverse">
               <Image src="/LOGO_NoBg.png"
-                alt={"فراز کنترل"}
-                width={64}
-                height={64}
-                className="object-cover bg-black/80 rounded-lg" />
+                alt={copy.logoAlt}
+                width={48}
+                height={48}
+                className="h-12 w-12 rounded-sm border border-border object-cover" />
             </span>
             <span className="leading-tight">
-              <span className="block text-lg font-black text-text">
-                {isRtl ? "فراز کنترل" : "Faraz Control"}
+              <span className="block text-base font-semibold tracking-tight text-text">
+                {copy.brand}
               </span>
               <span className="block text-xs font-semibold text-text-secondary">
-                {isRtl ? "تابلو برق صنعتی" : "Industrial Panels"}
+                {copy.tagline}
               </span>
             </span>
           </Link>
@@ -106,7 +97,7 @@ export default function Header({ locale }: HeaderProps) {
               className="inline-flex items-center gap-2 rounded-lg bg-primary px-4 py-2 text-sm font-bold text-text-inverse hover:bg-primary-light transition-colors"
             >
               <PhoneCall className="h-4 w-4" />
-              {isRtl ? "مشاوره" : "Consult"}
+              {copy.consult}
             </Link>
 
             <Link href={switchedPath}
@@ -116,13 +107,13 @@ export default function Header({ locale }: HeaderProps) {
               {otherLocale.toUpperCase()}
             </Link>
 
-            <ThemeSwitcher />
+            <ThemeSwitcher label={copy.themeToggle} />
           </div>
 
           {/* Mobile Menu Button */}
           <button
             type="button"
-            aria-label={isRtl ? "باز کردن منو" : "Open menu"}
+            aria-label={copy.openMenu}
             className="rounded-lg border border-border p-2 text-text lg:hidden hover:bg-background-alt transition"
             onClick={() => setMobileMenuOpen((open) => !open)}
           >
@@ -131,13 +122,8 @@ export default function Header({ locale }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
+      {mobileMenuOpen && (
+          <div
             className="overflow-hidden border-t border-border bg-background/98 backdrop-blur-xl lg:hidden"
           >
             <div className="space-y-2 px-4 py-4">
@@ -160,12 +146,11 @@ export default function Header({ locale }: HeaderProps) {
   <Globe className="h-4 w-4" />
   {otherLocale.toUpperCase()}
 </Link>
-                <ThemeSwitcher />
+                <ThemeSwitcher label={copy.themeToggle} />
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+      )}
     </header>
   );
 }

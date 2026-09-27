@@ -1,6 +1,4 @@
-"use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -9,7 +7,8 @@ interface ProjectsPreviewProps {
   data: {
     title: string;
     description: string;
-    projects: string[][];
+    viewAll: string;
+    projects: { title: string; description: string; image: string }[];
   };
   locale: string;
 }
@@ -27,19 +26,15 @@ export default function ProjectsPreview({ data, locale }: ProjectsPreviewProps) 
             <p className="mt-5 max-w-2xl text-lg leading-8 text-text-secondary">{data.description}</p>
           </div>
           <Link href={`/${locale}/projects`} className="inline-flex items-center gap-3 text-sm font-bold text-warning">
-            {isRtl ? "مشاهده همه پروژه‌ها" : "View all projects"}
+            {data.viewAll}
             <ArrowIcon className="h-4 w-4" />
           </Link>
         </div>
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {data.projects.map(([title, description, image], index) => (
-            <motion.article
+          {data.projects.map(({ title, description, image }, index) => (
+            <article
               key={title}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
               className="group overflow-hidden rounded-lg border border-border bg-background-card"
             >
               <div className="relative aspect-[16/10] overflow-hidden">
@@ -50,7 +45,7 @@ export default function ProjectsPreview({ data, locale }: ProjectsPreviewProps) 
                 <h3 className="text-xl font-black text-text">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-text-secondary">{description}</p>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

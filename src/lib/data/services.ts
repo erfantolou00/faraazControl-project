@@ -1,5 +1,6 @@
-import { createServerClient } from "@/lib/supabase/server";
-import { createAdminClient } from "@/lib/supabase/admin";
+// Supabase is temporarily disabled. These functions no longer talk to the database.
+// import { createServerClient } from "@/lib/supabase/server";
+// import { createAdminClient } from "@/lib/supabase/admin";
 import type {
   ServiceRow,
   ServiceInsert,
@@ -9,72 +10,43 @@ import type {
 export type Service = ServiceRow;
 
 export async function getPublishedServices(): Promise<ServiceRow[]> {
-  const supabase = createServerClient();
-  const { data, error } = await supabase
-    .from("services")
-    .select("*")
-    .eq("status", "published")
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data ?? [];
+  // const supabase = createServerClient();
+  // const { data, error } = await supabase
+  //   .from("services")
+  //   .select("*")
+  //   .eq("status", "published")
+  //   .order("sort_order", { ascending: true });
+  // if (error) throw error;
+  // return data ?? [];
+  return [];
 }
 
 export async function getAllServices(): Promise<ServiceRow[]> {
-  const supabase = createAdminClient();
-  const { data, error } = await supabase
-    .from("services")
-    .select("*")
-    .order("sort_order", { ascending: true });
-
-  if (error) throw error;
-  return data ?? [];
+  // const supabase = createAdminClient();
+  return [];
 }
 
-export async function getServiceById(id: string): Promise<ServiceRow | null> {
-  const supabase = createAdminClient();
-  const { data, error } = await supabase
-    .from("services")
-    .select("*")
-    .eq("id", id)
-    .maybeSingle();
-
-  if (error) throw error;
-  return data;
+export async function getServiceById(_id: string): Promise<ServiceRow | null> {
+  // const supabase = createAdminClient();
+  return null;
 }
 
 export async function createService(
-  input: ServiceInsert
+  _input: ServiceInsert
 ): Promise<ServiceRow> {
-  const supabase = createAdminClient();
-  const { data, error } = await supabase
-    .from("services")
-    .insert(input)
-    .select()
-    .single();
-
-  if (error) throw error;
-  return data;
+  // const supabase = createAdminClient();
+  throw new Error("Supabase is disabled");
 }
 
 export async function updateService(
-  id: string,
-  input: ServiceUpdate
+  _id: string,
+  _input: ServiceUpdate
 ): Promise<ServiceRow> {
-  const supabase = createAdminClient();
-  const { data, error } = await supabase
-    .from("services")
-    .update({ ...input, updated_at: new Date().toISOString() })
-    .eq("id", id)
-    .select()
-    .single();
-
-  if (error) throw error;
-  return data;
+  // const supabase = createAdminClient();
+  throw new Error("Supabase is disabled");
 }
 
-export async function deleteService(id: string): Promise<void> {
-  const supabase = createAdminClient();
-  const { error } = await supabase.from("services").delete().eq("id", id);
-  if (error) throw error;
+export async function deleteService(_id: string): Promise<void> {
+  // const supabase = createAdminClient();
+  throw new Error("Supabase is disabled");
 }

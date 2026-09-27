@@ -1,20 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { PhoneCall, MapPin, Clock, Send, Mail } from "lucide-react";
-import type { ContactPageData } from "./page";
+import { Clock, Mail, MapPin, PhoneCall, Send } from "lucide-react";
+import type { ContactPageData } from "@/lib/i18n";
 
 interface ContactPageClientProps {
   data: ContactPageData;
   locale: string;
 }
 
-export default function ContactPageClient({
-  data,
-  locale,
-}: ContactPageClientProps) {
-  const isRtl = locale === "fa";
-
+export default function ContactPageClient({ data }: ContactPageClientProps) {
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -27,9 +22,7 @@ export default function ContactPageClient({
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (
-    e: React.ChangeEvent<
-      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
-    >
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -43,245 +36,193 @@ export default function ContactPageClient({
     await new Promise((r) => setTimeout(r, 1200));
 
     setSubmitted(true);
-    setFormData({
-      name: "",
-      company: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+    setFormData({ name: "", company: "", email: "", phone: "", subject: "", message: "" });
     setIsSubmitting(false);
   };
 
   const inputClass =
-    "w-full rounded-2xl border border-border bg-background-card px-5 py-3.5 text-text transition focus:border-primary focus:outline-none";
+    "w-full border border-border bg-background-card px-4 py-3 text-sm text-text transition focus:border-primary focus:outline-none";
+  const labelClass = "mb-2 block text-xs font-semibold uppercase tracking-wide text-text-secondary";
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       {/* Hero */}
-      <section className="relative border-b border-border bg-background py-20 lg:py-28">
-        <div className="container px-6 lg:px-10">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-black leading-tight text-text md:text-5xl lg:text-6xl">
+      <section className="border-b border-border bg-background-alt">
+        <div className="container px-6 py-14 lg:px-10 lg:py-16">
+          <div className="max-w-2xl border-s-2 border-primary ps-5">
+            <h1 className="text-2xl font-semibold tracking-tight text-text md:text-3xl">
               {data.hero.title}
             </h1>
-            <p className="mt-6 text-lg text-text-secondary md:text-xl">
+            <p className="mt-3 text-sm leading-7 text-text-secondary md:text-base">
               {data.hero.subtitle}
             </p>
           </div>
         </div>
       </section>
 
-      <div className="container px-6 py-14 lg:px-10 lg:py-20">
-        <div className="grid gap-14 lg:grid-cols-5 lg:gap-16">
-          {/* Form */}
-          <div className="lg:col-span-3">
-            <div className="mb-8">
-              <h2 className="text-2xl font-bold text-text md:text-3xl">
-                {data.form.title}
-              </h2>
-              <p className="mt-2 text-text-secondary">{data.form.subtitle}</p>
-            </div>
+      <section className="bg-background">
+        <div className="container px-6 py-14 lg:px-10 lg:py-16">
+          <div className="grid gap-10 lg:grid-cols-5 lg:gap-12">
+            {/* Form */}
+            <div className="lg:col-span-3">
+              <h2 className="text-lg font-semibold text-text">{data.form.title}</h2>
+              <p className="mt-1 text-sm text-text-secondary">{data.form.subtitle}</p>
 
-            {submitted && (
-              <div className="mb-8 rounded-2xl border border-primary/30 bg-primary/10 px-5 py-4 text-primary">
-                {data.form.success}
-              </div>
-            )}
+              {submitted && (
+                <div className="mt-6 border border-primary/40 bg-primary/10 px-4 py-3 text-sm text-primary">
+                  {data.form.success}
+                </div>
+              )}
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid gap-6 md:grid-cols-2">
+              <form onSubmit={handleSubmit} className="mt-6 space-y-5">
+                <div className="grid gap-5 md:grid-cols-2">
+                  <div>
+                    <label className={labelClass}>{data.form.name}</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className={inputClass}
+                    />
+                  </div>
+                  <div>
+                    <label className={labelClass}>{data.form.company}</label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className={inputClass}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-2">
+                  <div>
+                    <label className={labelClass}>{data.form.email}</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className={inputClass}
+                      dir="ltr"
+                    />
+                  </div>
+                  <div>
+                    <label className={labelClass}>{data.form.phone}</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className={inputClass}
+                      dir="ltr"
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-text-secondary">
-                    {data.form.name}
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
+                  <label className={labelClass}>{data.form.subject}</label>
+                  <select
+                    name="subject"
+                    value={formData.subject}
                     onChange={handleChange}
                     required
                     className={inputClass}
-                  />
+                  >
+                    <option value="">{data.form.subjectPlaceholder}</option>
+                    {data.form.subjects.map((s) => (
+                      <option key={s.value} value={s.value}>
+                        {s.label}
+                      </option>
+                    ))}
+                  </select>
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-text-secondary">
-                    {data.form.company}
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className={inputClass}
-                  />
-                </div>
-              </div>
 
-              <div className="grid gap-6 md:grid-cols-2">
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-text-secondary">
-                    {data.form.email}
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
+                  <label className={labelClass}>{data.form.message}</label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className={inputClass}
-                    dir="ltr"
+                    rows={6}
+                    placeholder={data.form.messagePlaceholder}
+                    className={`${inputClass} resize-y`}
                   />
                 </div>
-                <div>
-                  <label className="mb-2 block text-sm font-medium text-text-secondary">
-                    {data.form.phone}
-                  </label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className={inputClass}
-                    dir="ltr"
-                  />
-                </div>
-              </div>
 
-              <div>
-                <label className="mb-2 block text-sm font-medium text-text-secondary">
-                  {data.form.subject}
-                </label>
-                <select
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className={inputClass}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="inline-flex w-full items-center justify-center gap-2 bg-primary px-6 py-3.5 text-sm font-semibold text-text-inverse transition hover:bg-primary-light disabled:opacity-70 md:w-auto"
                 >
-                  <option value="">{data.form.subjectPlaceholder}</option>
-                  {data.form.subjects.map((s) => (
-                    <option key={s.value} value={s.value}>
-                      {s.label}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="mb-2 block text-sm font-medium text-text-secondary">
-                  {data.form.message}
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  placeholder={data.form.messagePlaceholder}
-                  className={`${inputClass} resize-y rounded-3xl`}
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="inline-flex w-full items-center justify-center gap-3 rounded-2xl bg-primary px-10 py-4 text-lg font-bold text-text-inverse transition hover:bg-primary-light disabled:opacity-70 md:w-auto"
-              >
-                {isSubmitting ? data.form.submitting : data.form.submit}
-                <Send className="h-5 w-5" />
-              </button>
-            </form>
-          </div>
-
-          {/* Info */}
-          <div className="space-y-10 lg:col-span-2">
-            <div>
-              <h3 className="mb-8 text-2xl font-bold text-text">
-                {data.info.title}
-              </h3>
-
-              <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                    <PhoneCall className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-text">
-                      {data.info.phoneLabel}
-                    </p>
-                    <a
-                      href={data.info.phoneHref}
-                      className="text-lg text-text-secondary transition hover:text-primary"
-                      dir="ltr"
-                    >
-                      {data.info.phone}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                    <Mail className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-text">
-                      {data.info.emailLabel}
-                    </p>
-                    <a
-                      href={`mailto:${data.info.email}`}
-                      className="text-text-secondary transition hover:text-primary"
-                      dir="ltr"
-                    >
-                      {data.info.email}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                    <MapPin className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-text">
-                      {data.info.addressLabel}
-                    </p>
-                    <p className="leading-relaxed text-text-secondary">
-                      {data.info.address}
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="mt-1 flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                    <Clock className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-text">
-                      {data.info.hoursLabel}
-                    </p>
-                    <p className="whitespace-pre-line text-text-secondary">
-                      {data.info.hours}
-                    </p>
-                  </div>
-                </div>
-              </div>
+                  {isSubmitting ? data.form.submitting : data.form.submit}
+                  <Send className="h-4 w-4" />
+                </button>
+              </form>
             </div>
 
-            {/* Map placeholder */}
-            <div className="relative h-72 overflow-hidden rounded-3xl border border-border bg-zinc-900 md:h-80">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center">
-                  <MapPin className="mx-auto mb-4 h-12 w-12 text-primary" />
-                  <p className="text-text-secondary">{data.info.mapLoading}</p>
-                </div>
+            {/* Info */}
+            <div className="lg:col-span-2">
+              <h2 className="text-lg font-semibold text-text">{data.info.title}</h2>
+
+              <div className="mt-6 divide-y divide-border border border-border">
+                <InfoRow icon={<PhoneCall className="h-4 w-4" />} label={data.info.phoneLabel}>
+                  <a href={data.info.phoneHref} className="text-sm text-text-secondary transition hover:text-primary" dir="ltr">
+                    {data.info.phone}
+                  </a>
+                </InfoRow>
+                <InfoRow icon={<Mail className="h-4 w-4" />} label={data.info.emailLabel}>
+                  <a href={`mailto:${data.info.email}`} className="text-sm text-text-secondary transition hover:text-primary" dir="ltr">
+                    {data.info.email}
+                  </a>
+                </InfoRow>
+                <InfoRow icon={<MapPin className="h-4 w-4" />} label={data.info.addressLabel}>
+                  <p className="text-sm leading-6 text-text-secondary">{data.info.address}</p>
+                </InfoRow>
+                <InfoRow icon={<Clock className="h-4 w-4" />} label={data.info.hoursLabel}>
+                  <p className="whitespace-pre-line text-sm leading-6 text-text-secondary">{data.info.hours}</p>
+                </InfoRow>
               </div>
-              {/* بعداً iframe نقشه را اینجا بگذار */}
+
+              <div className="relative mt-6 h-56 border border-border bg-background-alt">
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 text-center">
+                  <MapPin className="h-8 w-8 text-primary" />
+                  <p className="text-sm text-text-secondary">{data.info.mapLoading}</p>
+                </div>
+                {/* بعداً iframe نقشه را اینجا بگذار */}
+              </div>
             </div>
           </div>
         </div>
+      </section>
+    </>
+  );
+}
+
+function InfoRow({
+  icon,
+  label,
+  children,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="flex gap-4 p-4">
+      <span className="grid h-10 w-10 shrink-0 place-items-center border border-border bg-background text-primary">
+        {icon}
+      </span>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-wide text-text-muted">{label}</p>
+        <div className="mt-1">{children}</div>
       </div>
     </div>
   );

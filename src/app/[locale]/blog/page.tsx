@@ -1,19 +1,22 @@
-import React from 'react';
+import { getDictionary } from "@/lib/i18n";
 
-const BlogPage: React.FC = () => {
-    return (
-        <div>
-            <h1>Blog</h1>
-            <article>
-                <h2>First Blog Post</h2>
-                <p>This is the content of the first blog post.</p>
-            </article>
-            <article>
-                <h2>Second Blog Post</h2>
-                <p>This is the content of the second blog post.</p>
-            </article>
-        </div>
-    );
-};
+interface BlogPageProps {
+  params: Promise<{ locale: string }>;
+}
 
-export default BlogPage;
+// متن‌ها: src/lib/i18n/fa.json و en.json → بخش blogPage
+export default async function BlogPage({ params }: BlogPageProps) {
+  const { locale } = await params;
+  const blog = getDictionary(locale).blogPage;
+
+  return (
+    <div className="container px-6 py-24 lg:px-10">
+      <h1 className="text-4xl font-black text-text md:text-6xl">{blog.heroTitle}</h1>
+      <p className="mt-6 max-w-3xl text-lg text-text-secondary">{blog.heroSubtitle}</p>
+      <article className="mt-16 max-w-2xl">
+        <h2 className="text-2xl font-bold text-text">{blog.emptyTitle}</h2>
+        <p className="mt-4 text-text-secondary">{blog.emptyDesc}</p>
+      </article>
+    </div>
+  );
+}

@@ -1,7 +1,6 @@
 "use client";
 
 import { useSyncExternalStore, useCallback, useEffect } from "react";
-import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 function subscribe(callback: () => void) {
@@ -26,10 +25,10 @@ function getSnapshot(): "light" | "dark" {
 
 // Must be stable and the same on every server render
 function getServerSnapshot(): "light" | "dark" {
-  return "light";
+  return "dark";
 }
 
-export default function ThemeSwitcher() {
+export default function ThemeSwitcher({ label }: { label: string }) {
   const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   // Apply the theme to the document whenever it changes
@@ -48,27 +47,22 @@ export default function ThemeSwitcher() {
   }, [theme]);
 
   return (
-    <motion.button
+    <button
       onClick={toggleTheme}
-      whileTap={{ scale: 0.85 }}
-      whileHover={{ scale: 1.1 }}
       className="relative p-2 rounded-xl border border-primary/40 text-primary bg-primary/5
                  hover:bg-primary/10 backdrop-blur-sm transition-all shadow-sm
                  hover:shadow-primary/20 flex items-center justify-center"
-      aria-label="Toggle theme"
+      aria-label={label}
     >
-      <motion.div
+      <div
         key={theme}
-        initial={{ opacity: 0, rotate: -90 }}
-        animate={{ opacity: 1, rotate: 0 }}
-        transition={{ duration: 0.25 }}
       >
         {theme === "light" ? (
           <Sun className="w-5 h-5 text-primary" />
         ) : (
           <Moon className="w-5 h-5 text-primary" />
         )}
-      </motion.div>
-    </motion.button>
+      </div>
+    </button>
   );
 }

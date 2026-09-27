@@ -35,7 +35,7 @@ const recentMessages = [
 ];
 
 const recentProjects = [
-  { id: 1, title: "تابلوهای MV/LV پالایشگاه بندرعباس", status: "منتشر شده" },
+  { id: 1, title: "تابلوهای LV پالایشگاه بندرعباس", status: "منتشر شده" },
   { id: 2, title: "اتوماسیون فولاد مبارکه", status: "پیش‌نویس" },
   { id: 3, title: "تابلوهای نیروگاه دماوند", status: "منتشر شده" },
 ];
