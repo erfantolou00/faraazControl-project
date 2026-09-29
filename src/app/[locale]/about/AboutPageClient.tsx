@@ -15,41 +15,41 @@ interface AboutPageClientProps {
 }
 
 export default function AboutPageClient({ data, locale }: AboutPageClientProps) {
-  const isRtl = locale === "fa";
-
   return (
     <>
       <PageHero
-        image="/about/story.webp"
+        image="/about/panel-detail.jpg"
         alt={data.hero.titleHighlight}
         titleBefore={data.hero.titleBefore}
         titleHighlight={data.hero.titleHighlight}
         subtitle={data.hero.subtitle}
+        imageClassName="object-cover object-[center_35%]"
+        scrimClassName="bg-linear-to-t from-background via-background/50 to-background/20"
+        sectionClassName="min-h-[62vh]"
       />
 
-      {/* Story */}
       <HomeSection tone="alt">
-        <div className="grid items-start gap-10 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="relative aspect-[4/3] overflow-hidden border border-border">
+        <div className="grid items-stretch gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10">
+          <div className="relative min-h-80 overflow-hidden border border-border lg:min-h-full">
             <Image
-              src="/about/story.webp"
+              src="/about/control-room.jpg"
               alt={data.story.title}
               fill
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover"
+              sizes="(min-width: 1024px) 42vw, 100vw"
+              className="object-cover object-[center_62%] brightness-125"
             />
           </div>
-          <div>
+          <div className="flex flex-col justify-center">
             <h2 className="text-2xl font-semibold tracking-tight text-text md:text-3xl">
               {data.story.title}
             </h2>
             <div className="mt-5 space-y-4 text-sm leading-7 text-text-secondary md:text-base">
-              {data.story.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
+              {data.story.paragraphs.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
             <div className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-              <span className="h-8 w-1 bg-primary" />
+              <span className="h-8 w-1 shrink-0 bg-primary" />
               <p className="text-sm font-medium text-text">{data.story.experienceLabel}</p>
             </div>
             <p className="mt-4 text-sm font-semibold text-primary">{data.story.cta}</p>
@@ -57,7 +57,6 @@ export default function AboutPageClient({ data, locale }: AboutPageClientProps) 
         </div>
       </HomeSection>
 
-      {/* Values */}
       <HomeSection>
         <h2 className="mb-8 max-w-xl text-2xl font-semibold tracking-tight text-text md:text-3xl">
           {data.values.title.split(data.values.titleHighlight)[0]}
@@ -80,36 +79,22 @@ export default function AboutPageClient({ data, locale }: AboutPageClientProps) 
         </div>
       </HomeSection>
 
-      {/* Team & Facility */}
       <HomeSection tone="alt">
-        <div className="grid gap-4 lg:grid-cols-2">
-          <figure className="relative aspect-[4/3] overflow-hidden border border-border">
-            <Image src="/about/team.jpg" alt={data.team.title} fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
-            <figcaption
-              className={`absolute bottom-0 ${isRtl ? "right-0 text-right" : "left-0 text-left"} border-t border-primary/40 bg-background/90 px-5 py-4`}
-            >
-              <p className="flex items-center gap-2 text-lg font-semibold text-text">
-                <Users className="h-5 w-5 text-primary" />
-                {data.team.title}
-              </p>
-              <p className="mt-1 text-sm text-text-secondary">{data.team.subtitle}</p>
-            </figcaption>
-          </figure>
-
-          <figure className="relative aspect-[4/3] overflow-hidden border border-border">
-            <Image src="/about/factory.webp" alt={data.facility.title} fill className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent" />
-            <figcaption
-              className={`absolute bottom-0 ${isRtl ? "right-0 text-right" : "left-0 text-left"} border-t border-primary/40 bg-background/90 px-5 py-4`}
-            >
-              <p className="flex items-center gap-2 text-lg font-semibold text-text">
-                <Factory className="h-5 w-5 text-primary" />
-                {data.facility.title}
-              </p>
-              <p className="mt-1 text-sm text-text-secondary">{data.facility.subtitle}</p>
-            </figcaption>
-          </figure>
+        <div className="grid gap-4 md:grid-cols-2">
+          <article className="border border-border bg-background-card p-6">
+            <span className="grid h-10 w-10 place-items-center border border-border bg-background text-primary">
+              <Users className="h-5 w-5" />
+            </span>
+            <h2 className="mt-5 text-xl font-semibold text-text">{data.team.title}</h2>
+            <p className="mt-2 text-sm leading-7 text-text-secondary">{data.team.subtitle}</p>
+          </article>
+          <article className="border border-border bg-background-card p-6">
+            <span className="grid h-10 w-10 place-items-center border border-border bg-background text-primary">
+              <Factory className="h-5 w-5" />
+            </span>
+            <h2 className="mt-5 text-xl font-semibold text-text">{data.facility.title}</h2>
+            <p className="mt-2 text-sm leading-7 text-text-secondary">{data.facility.subtitle}</p>
+          </article>
         </div>
       </HomeSection>
 

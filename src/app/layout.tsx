@@ -1,13 +1,9 @@
 import "./globals.css";
 
-import { ReactNode } from 'react';
-import { Vazirmatn } from "next/font/google";
+import { ReactNode } from "react";
+import { headers } from "next/headers";
 import fa from "@/lib/i18n/fa.json";
-
-const sans = Vazirmatn({
-  subsets: ["arabic", "latin"],
-  display: "swap",
-});
+import { inter, vazirmatn } from "@/lib/fonts";
 
 // عنوان پیش‌فرض از src/lib/i18n/fa.json → meta
 export const metadata = {
@@ -15,14 +11,18 @@ export const metadata = {
   description: fa.meta.description,
 };
 
-export default function RootLayout({ children }: { children: ReactNode }) {
-  return (
-    <html lang="fa" className={sans.className}>
-            <link rel="icon" type="image/webp" sizes="16x16" href="/LOGO_NoBg.webp" />
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const headerStore = await headers();
+  const locale = headerStore.get("x-locale") === "en" ? "en" : "fa";
 
-      <body className="antialiased">
-        {children}
-      </body>
+  return (
+    <html
+      lang={locale}
+      dir={locale === "en" ? "ltr" : "rtl"}
+      className={`${vazirmatn.variable} ${inter.variable}`}
+    >
+      <link rel="icon" type="image/webp" sizes="16x16" href="/LOGO_NoBg.webp" />
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

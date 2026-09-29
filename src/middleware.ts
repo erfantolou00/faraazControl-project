@@ -16,7 +16,14 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
-  if (pathnameHasLocale) return;
+  if (pathnameHasLocale) {
+    const locale = locales.find(
+      (item) => pathname.startsWith(`/${item}/`) || pathname === `/${item}`,
+    );
+    const requestHeaders = new Headers(request.headers);
+    if (locale) requestHeaders.set("x-locale", locale);
+    return NextResponse.next({ request: { headers: requestHeaders } });
+  }
 
   const locale = getLocale(request);
   request.nextUrl.pathname = `/${locale}${pathname}`;

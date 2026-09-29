@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* Vazirmatn is loaded in the root layout. It is a production Persian grotesque in the same family as Iran Sans, with Latin support. */
+/* Fonts are self-hosted in src/fonts and applied from src/lib/fonts.ts.
+   Persian (and admin) uses Vazirmatn. English uses Inter, with Vazirmatn as fallback. */
 
 /* ==================== Dark Variant برای Tailwind 4+ ==================== */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -71,7 +72,7 @@ html.light {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  body, input, textarea, button, select {
+  input, textarea, button, select {
     font-family: inherit;
   }
 
@@ -118,6 +119,15 @@ html.light {
   *:focus-visible {
     @apply outline-none ring-2 ring-primary/50 ring-offset-2 ring-offset-background;
   }
+}
+
+/* Outside @layer so these beat Tailwind's preflight font on html. */
+html {
+  font-family: var(--font-vazirmatn), Tahoma, "Segoe UI", sans-serif;
+}
+
+html[lang="en"] {
+  font-family: var(--font-inter), var(--font-vazirmatn), Arial, sans-serif;
 }
 
 /* ==================== کامپوننت‌های سفارشی (اختیاری) ==================== */

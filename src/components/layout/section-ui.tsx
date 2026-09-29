@@ -104,6 +104,9 @@ export function PageHero({
   titleHighlight,
   titleAfter,
   subtitle,
+  imageClassName = "object-cover",
+  scrimClassName = "bg-linear-to-t from-background via-background/75 to-background/35",
+  sectionClassName = "min-h-[46vh]",
 }: {
   image: string;
   alt: string;
@@ -112,12 +115,15 @@ export function PageHero({
   titleHighlight?: string;
   titleAfter?: string;
   subtitle?: string;
+  imageClassName?: string;
+  scrimClassName?: string;
+  sectionClassName?: string;
 }) {
   return (
-    <section className="relative flex min-h-[46vh] items-end overflow-hidden border-b border-border">
+    <section className={`relative isolate flex items-end overflow-hidden border-b border-border ${sectionClassName}`}>
       <div className="absolute inset-0 -z-10">
-        <Image src={image} alt={alt} fill priority sizes="100vw" className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/75 to-background/35" />
+        <Image src={image} alt={alt} fill priority sizes="100vw" className={imageClassName} />
+        <div className={`absolute inset-0 ${scrimClassName}`} />
       </div>
 
       <div className="container px-6 pb-12 pt-28 lg:px-10">

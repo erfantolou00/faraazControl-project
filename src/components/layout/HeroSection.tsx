@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Factory, ShieldCheck } from "lucide-react";
+import HeroGallery from "@/components/layout/HeroGallery";
 
 interface HeroSectionProps {
   data: {
@@ -70,16 +70,8 @@ export default function HeroSection({ data, locale }: HeroSectionProps) {
           </div>
         </div>
 
-        <div className="relative min-h-[280px] border-t border-border lg:border-s lg:border-t-0">
-          <Image
-            src="/heroSection/1.jpg"
-            alt={data.title}
-            fill
-            priority
-            sizes="(min-width: 1024px) 42vw, 100vw"
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-background/25" />
+        <div className="relative min-h-80 border-t border-border lg:min-h-full lg:border-s lg:border-t-0">
+          <HeroGallery title={data.title} locale={locale} />
         </div>
       </div>
     </section>
