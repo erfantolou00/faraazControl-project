@@ -252,7 +252,7 @@
         "icon": "CircuitBoard",
         "title": "طراحی تابلوهای برق صنعتی",
         "desc": "طراحی دقیق LV با نرم‌افزارهای EPLAN، AutoCAD Electrical و ETAP مطابق با استاندارد IEC 61439",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/design.jpg",
         "features": ["تحلیل بار و اتصال کوتاه", "انتخاب بهینه تجهیزات", "طراحی 3D و شماتیک کامل"]
       },
       {
@@ -260,7 +260,7 @@
         "icon": "Factory",
         "title": "ساخت و مونتاژ حرفه‌ای",
         "desc": "ساخت تابلوهای برق در کارگاه مجهز با دستگاه‌های CNC، برش لیزر و تست پیشرفته",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/manufacturing.jpg",
         "features": ["استفاده از برندهای معتبر جهانی", "مونتاژ دقیق و استاندارد", "کنترل کیفیت چندمرحله‌ای"]
       },
       {
@@ -268,7 +268,7 @@
         "icon": "Cpu",
         "title": "اتوماسیون و کنترل صنعتی",
         "desc": "پیاده‌سازی سیستم‌های PLC، HMI، SCADA، DCS و راهکارهای Industry 4.0",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/automation.jpg",
         "features": ["Siemens, Schneider, ABB", "پروگرام‌نویسی پیشرفته", "یکپارچه‌سازی با سیستم‌های موجود"]
       },
       {
@@ -276,7 +276,7 @@
         "icon": "Wrench",
         "title": "نصب و راه‌اندازی در محل",
         "desc": "تیم فنی مجرب برای نصب، راه‌اندازی و تست نهایی در سراسر کشور",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/installation.jpg",
         "features": ["نصب اصولی و ایمن", "راه‌اندازی مرحله به مرحله", "آموزش اپراتورها"]
       },
       {
@@ -284,7 +284,7 @@
         "icon": "Shield",
         "title": "تست کارخانه‌ای (HiPot) و تحویل",
         "desc": "تست کامل عملکرد، ایمنی و کیفیت قبل از ارسال با حضور مشتری",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/testing.webp",
         "features": ["تست عایق، اتصال کوتاه و عملکرد", "گزارش جامع و مستند", "تایید نهایی مشتری"]
       },
       {
@@ -292,7 +292,7 @@
         "icon": "Settings",
         "title": "پشتیبانی و نگهداری ۲۴/۷",
         "desc": "خدمات پس از فروش، تعمیرات، به‌روزرسانی و قرارداد نگهداری سالیانه",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/support.png",
         "features": ["پشتیبانی فنی تلفنی و حضوری", "قطعات یدکی اصلی", "قرارداد SLA"]
       }
     ]

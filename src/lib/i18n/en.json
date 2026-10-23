@@ -252,7 +252,7 @@
         "icon": "CircuitBoard",
         "title": "Industrial electrical panel design",
         "desc": "Precise LV design with EPLAN, AutoCAD Electrical, and ETAP, in line with IEC 61439",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/design.jpg",
         "features": ["Load and short-circuit analysis", "Optimal equipment selection", "Complete 3D design and schematics"]
       },
       {
@@ -260,7 +260,7 @@
         "icon": "Factory",
         "title": "Professional manufacturing and assembly",
         "desc": "Building electrical panels in an equipped workshop with CNC machines, laser cutting, and advanced testing",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/manufacturing.jpg",
         "features": ["Trusted international brands", "Precise, standard assembly", "Multi-stage quality control"]
       },
       {
@@ -268,7 +268,7 @@
         "icon": "Cpu",
         "title": "Industrial automation and control",
         "desc": "Implementation of PLC, HMI, SCADA, and DCS systems, and Industry 4.0 solutions",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/automation.jpg",
         "features": ["Siemens, Schneider, ABB", "Advanced programming", "Integration with existing systems"]
       },
       {
@@ -276,7 +276,7 @@
         "icon": "Wrench",
         "title": "On-site installation and commissioning",
         "desc": "An experienced technical team for installation, commissioning, and final testing across the country",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/installation.jpg",
         "features": ["Sound and safe installation", "Step-by-step commissioning", "Operator training"]
       },
       {
@@ -284,7 +284,7 @@
         "icon": "Shield",
         "title": "Factory testing (HiPot) and handover",
         "desc": "Full performance, safety, and quality testing before shipment, with the client present",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/testing.webp",
         "features": ["Insulation, short-circuit, and functional tests", "A complete documented report", "Final client approval"]
       },
       {
@@ -292,7 +292,7 @@
         "icon": "Settings",
         "title": "24/7 support and maintenance",
         "desc": "After-sales service, repairs, updates, and annual maintenance contracts",
-        "image": "/heroSection/1.jpg",
+        "image": "/services/support.png",
         "features": ["Phone and on-site technical support", "Original spare parts", "SLA contracts"]
       }
     ]

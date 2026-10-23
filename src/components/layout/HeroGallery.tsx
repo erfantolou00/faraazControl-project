@@ -9,6 +9,10 @@ const SLIDES = [
   "/heroSection/2.jpg",
   "/heroSection/3.jpg",
   "/heroSection/4.jpg",
+  "/heroSection/5.jpg",
+  "/heroSection/6.jpg",
+  "/heroSection/7.jpg",
+  "/heroSection/8.jpg",
 ] as const;
 
 const INTERVAL_MS = 5200;
